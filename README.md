@@ -1,4 +1,4 @@
-#3 Raspberry Pi AI Agent Host
+# Raspberry Pi AI Agent Host
 
 The AI Agent Host offers several features that make it an ideal environment for AI development on a Raspberry Pi 4 with 8GB RAM:
 
