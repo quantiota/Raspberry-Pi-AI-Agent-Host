@@ -1,6 +1,6 @@
 # Raspberry Pi AI Agent Host
 
-The AI Agent Host offers several features that make it an ideal environment for AI development on a Raspberry Pi 4 with 8GB RAM:
+The AI Agent Host was tested on DietPi. No other Linux distributions have been tested. The AI Agent Host offers several features that make it an ideal environment for AI development on a Raspberry Pi 4 with 8GB RAM:
 
 1. **Modular Environment**: The AI Agent Host is built as a module-based system, allowing different components to be added or removed based on the requirements of the project. This is perfect for the customizable nature of Raspberry Pi.
 
