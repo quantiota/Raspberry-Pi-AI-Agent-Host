@@ -1,1 +1,1 @@
-# Raspberrypi AI Agent Host
+# RaspberryPi AI Agent Host
