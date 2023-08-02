@@ -34,7 +34,7 @@ These features make the AI Agent Host a dynamic, effective, and efficient enviro
    The AI Agent Host includes services such as Code-Server (a code editor), Grafana (a visualization tool), and QuestDB (a database). Additional services can be added or removed as needed.
 
 4. **What do I need to connect to the Code-Server from a browser with HTTPS?**
-   A fully qualified domain name (FQDN) is necessary to connect to the Code-Server from a browser using HTTPS. The FQDN ensures that the secure connection is correctly established.
+   A fully qualified domain name (FQDN) is mandatory to connect to the Code-Server from a browser using HTTPS. The FQDN ensures that the secure connection is correctly established.
 
 5. **Can I use the AI Agent Host with other versions of the Raspberry Pi?**
    While the AI Agent Host has been tested and works well on the Raspberry Pi 4 8GB model, it should theoretically work on other models with sufficient hardware capabilities. However, performance may vary.
