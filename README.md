@@ -25,7 +25,7 @@ These features make the AI Agent Host a dynamic, effective, and efficient enviro
 ## Frequently Asked Questions
 
 1. **What is the AI Agent Host?**
-   The AI Agent Host is a Dockerized environment designed for AI development. It's built on a modular system that allows different components to be added or removed based on the requirements of the project.
+   The AI Agent Host is a Dockerized environment designed for AI development. It's built on a modular system that allows different components to be added or removed based on the requirements of the project. By adding an AI Agent container, the AI Agent Host can be transformed into an AI Agent Lab, expanding its capabilities for AI development and experimentation.
 
 2. **Why use the AI Agent Host on a Raspberry Pi 4 8GB?**
    The AI Agent Host is lightweight yet powerful, making it suitable for the Raspberry Pi's limited hardware resources. It's designed to work with live data from both APIs and Raspberry Pi's own sensors, making it a powerful tool for real-time data analysis, modeling, and decision-making.
