@@ -34,6 +34,42 @@ Please note that while we strive to keep this document up-to-date, the field of 
 
 ## Usage
 
+To test the AI Agent Host, follow these steps:
+
+1. Set up or use an existing environment with Docker installed.
+
+Run dietpi-software from the command line.
+
+```
+dietpi-software
+
+```
+
+Choose Browse Software and select Docker Compose, Docker and Git. Finally select Install.
+DietPi will do all the necessary steps to install and start these software items.
+
+
+```
+
+             │  [*] 134  Docker Compose: Manage multi-container Docker applications                 
+             │  [ ] 142  MicroK8s: The simplest production-grade upstream K8s, light and focused     
+             │  [*] 162  Docker: Build, ship, and run distributed applications    
+
+             |  [*] 17   Git: Clone and manage Git repositories locally                                  
+
+```
+
+2. Clone the AI Agent Host repository and navigate to the docker directory.
+
+```
+
+git clone https://github.com/quantiota/AI-Agent-Host.git
+cd AI-Agent-Host/docker
+
+
+```
+
+
 
 ## Frequently Asked Questions
 
