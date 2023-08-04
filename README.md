@@ -36,7 +36,7 @@ These features make the AI Agent Host a dynamic, effective, and efficient enviro
 4. **What do I need to connect to the Code-Server from a browser with HTTPS?**
    A fully qualified domain name (FQDN) is necessary to connect to the Code-Server from a browser using HTTPS. The FQDN ensures that the secure connection is correctly established.
 
-5. Can the AI Agent Host on a Raspberry Pi be used in combination with a remote JupyterHub installed on a GPU server?
+5. **Can the AI Agent Host on a Raspberry Pi be used in combination with a remote JupyterHub installed on a GPU server?**
 
    Yes, this is one of the unique and powerful features of the AI Agent Host setup. You can use the AI Agent Host installed on a Raspberry Pi for real-time data analysis and decision making at the edge, while also connecting remotely to a JupyterHub installed on a GPU server for handling computationally intensive tasks. This innovative setup opens up new possibilities for AI development, especially in fields like IoT and edge computing.
 
