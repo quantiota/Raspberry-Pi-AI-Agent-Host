@@ -1,5 +1,12 @@
 # Raspberry Pi AI Agent Host
 
+
+## Simplified Summary
+
+The AI Agent Host is a setup that allows AI applications to run directly on a Raspberry Pi. These applications can interact with live data to make decisions or predictions, and the setup can be customized according to the project's needs. The AI Agent Host also works with a powerful GPU server for demanding tasks. It uses lightweight services suitable for the Raspberry Pi's resources and is optimized for DietPi, a lightweight operating system ideal for Raspberry Pi
+
+
+
 The [AI Agent Host](https://github.com/quantiota/AI-Agent-Host), designed specifically for AI development, offers several key features making it an ideal solution for Raspberry Pi 4 with 8GB RAM, especially when running DietPi OS:
 
 1. **Modular Environment**: The AI Agent Host is built as a module-based system, allowing different components to be added or removed based on the requirements of the project. This is perfect for the customizable nature of Raspberry Pi. Furthermore, by adding an AI Agent container, the AI Agent Host can be transformed into an AI Agent Lab, expanding its capabilities for AI development and experimentation.
