@@ -32,7 +32,7 @@ As the AI industry continues to evolve rapidly, this innovative approach may bec
 Please note that while we strive to keep this document up-to-date, the field of AI is continuously evolving. For the latest information and developments, we recommend staying active in relevant online communities and keeping up with the latest research.
 
 
-## Usage
+## Getting Started 
 
 To test the AI Agent Host, follow these steps:
 
