@@ -1,9 +1,7 @@
 # Raspberry Pi AI Agent Host
 
 
-## Simplified Summary
-
-The AI Agent Host is a setup that allows AI applications to run directly on a Raspberry Pi. These applications can interact with live data to make decisions or predictions, and the setup can be customized according to the project's needs. The AI Agent Host also works with a powerful GPU server for demanding tasks. It uses lightweight services suitable for the Raspberry Pi's resources and is optimized for DietPi, a lightweight operating system ideal for Raspberry Pi
+**Simplified Summary:** The AI Agent Host is a setup that allows AI applications to run directly on a Raspberry Pi. These applications can interact with live data to make decisions or predictions, and the setup can be customized according to the project's needs. The AI Agent Host also works with a powerful GPU server for demanding tasks. It uses lightweight services suitable for the Raspberry Pi's resources and is optimized for DietPi, a lightweight operating system ideal for Raspberry Pi
 
 
 
