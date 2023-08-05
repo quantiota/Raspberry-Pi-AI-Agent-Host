@@ -75,6 +75,24 @@ cd AI-Agent-Host/docker
 
 Then follow the prerequiste section on this [Tutorial](https://github.com/quantiota/AI-Agent-Host/tree/main/tests) for guidance.
 
+## Usage
+
+### 1 Once the services are up and running, you can access the AI Agent Host interfaces:
+
+- QuestDB: Visit https://questdb.domain.tld in your web browser.
+- Grafana: Visit https://grafana.domain.tld in your web browser.
+- Code-Server: Visit https://vscode.domain.tld in your web browser.
+
+### 2 To connect the AI Agent Host to a remote JupyterHub environment from Code-Server:
+
+1. Set up or use an existing remote JupyterHub that includes the necessary dependencies for working with your notebooks and data.
+
+2. Connect to the remote JupyterHub environment from within the Code-Server interface provided by the AI Agent Host
+
+### 3 Start working with your notebooks and data, using the pre-installed tools and libraries included in your remote environment.
+
+You can also run the existing notebook in the project folder within VSCode. Follow this [tutorial](https://github.com/quantiota/AI-Agent-Host/tree/main/notebooks/market-data/coinbase) for guidance.
+
 
 
 ## Frequently Asked Questions
@@ -106,4 +124,23 @@ Then follow the prerequiste section on this [Tutorial](https://github.com/quanti
 
 9. **What if I need help or support with the AI Agent Host?**
    There are active communities for both Raspberry Pi and AI Agent Host where you can expect robust support and resources for your AI development projects.
+
+
+
+   ## References
+
+
+1. Connect to a JupyterHub from Visual Studio Code. [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_connect-to-a-remote-jupyter-server)
+
+2. Create an API Token. [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/howto/rest.html#create-an-api-token)
+
+3. [Visual Studio Code](https://code.visualstudio.com/)
+
+4. [QuestDB - The Fastest Open Source Time Series Database](https://questdb.io/)
+
+5. [Grafana - The open observability platform](https://grafana.com/)
+
+6. [Langchain](https://python.langchain.com)
+
+
 
