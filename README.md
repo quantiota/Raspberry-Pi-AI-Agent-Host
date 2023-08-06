@@ -117,7 +117,7 @@ You can also run the existing notebook in the project folder within VSCode. Foll
    While the AI Agent Host has been tested and works well on the Raspberry Pi 4 8GB model, it should theoretically work on other models with sufficient hardware capabilities. However, performance may vary.
 
 7. **Which operating systems are compatible with the AI Agent Host?**
-   The AI Agent Host has been tested and found to be compatible with DietPi. Compatibility with other Linux distributions hasn't been extensively tested.
+   The AI Agent Host has been tested and found to be compatible with DietPi installed on a Raspberry Pi 4 8gb. Compatibility with other Linux distributions hasn't been extensively tested.
 
 8. **Can I add my own services to the AI Agent Host?**
    Absolutely! The AI Agent Host is designed to be modular, allowing you to add or remove Docker containers as needed. This means you can customize the environment to include the exact tools and services that best suit your specific project's needs.
