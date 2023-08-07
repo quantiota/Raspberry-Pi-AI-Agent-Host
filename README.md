@@ -68,7 +68,9 @@ DietPi will do all the necessary steps to install and start these software items
 2. Clone the AI Agent Host repository and navigate to the docker directory.
 
 ```
+umask 0002
 git clone https://github.com/quantiota/AI-Agent-Host.git
+umask 0022
 cd AI-Agent-Host/docker
 
 ```
