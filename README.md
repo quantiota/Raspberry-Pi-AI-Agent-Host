@@ -45,6 +45,8 @@ To test the AI Agent Host, follow these steps:
 
 1. Set up or use an existing environment with Docker installed.
 
+With root:dietpi login
+
 Run dietpi-software from the command line.
 
 ```
@@ -66,6 +68,8 @@ DietPi will do all the necessary steps to install and start these software items
 ```
 
 2. Clone the AI Agent Host repository and navigate to the docker directory.
+
+with dietpi:dietpi login 
 
 ```
 umask 0002
