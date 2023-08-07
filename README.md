@@ -53,14 +53,15 @@ Run dietpi-software from the command line.
 dietpi-software
 ```
 
-Choose Browse Software and select Docker Compose, Docker and Git. Finally select Install.
+Choose Browse Software and select Prometheus Node Exporter, Docker Compose, Docker and Git. Finally select Install.
 DietPi will do all the necessary steps to install and start these software items.
 
 
 ```
+             |  [*] 99   Prometheus Node Exporter: Prometheus exporter for hardware and OS metrics
 
              │  [*] 134  Docker Compose: Manage multi-container Docker applications                 
-             │  [ ] 142  MicroK8s: The simplest production-grade upstream K8s, light and focused     
+                 
              │  [*] 162  Docker: Build, ship, and run distributed applications    
 
              |  [*] 17   Git: Clone and manage Git repositories locally                                  
