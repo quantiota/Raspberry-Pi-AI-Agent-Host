@@ -11,7 +11,7 @@ Moreover, the AI Agent Host is designed to be modular, which means you can add o
 
 Also, you can use this setup in combination with a powerful GPU server. So, if you have tasks that are too demanding for the Raspberry Pi, you can send them to this server for processing. This is made possible with the inclusion of CodeServer and remote connection to a JupyterHub installed on the GPU server.  
 
-Finally, the AI Agent Host uses lightweight services like #QuestDB and Grafana, suitable for the Raspberry Pi's limited resources, and is optimized for DietPi, a lightweight operating system ideal for single-board computers like Raspberry Pi.  
+Finally, the AI Agent Host uses lightweight services like QuestDB and Grafana, suitable for the Raspberry Pi's limited resources, and is optimized for DietPi, a lightweight operating system ideal for single-board computers like Raspberry Pi.  
 
 I hope this explanation helps simplify the concept of the AI Agent Host. If you have any further questions or if something is still unclear, feel free to ask!  
 
