@@ -1,7 +1,9 @@
 # Raspberry Pi AI Agent Host
 
 
-**Simplified Summary:** The AI Agent Host can be complex given that it involves several aspects such as AI, edge computing, Docker, and #RaspberryPi. Let me attempt to simplify it:  
+## Simplified Summary
+
+ The AI Agent Host can be complex given that it involves several aspects such as AI, edge computing, Docker, and #RaspberryPi. Let me attempt to simplify it:  
 
 The AI Agent Host is essentially a setup that allows you to run AI applications directly on a Raspberry Pi, which is a small, low-cost computer often used in various tech projects.  
 
