@@ -147,6 +147,12 @@ You can also run the existing notebook in the project folder within VSCode. Foll
    There are active communities for both Raspberry Pi and AI Agent Host where you can expect robust support and resources for your AI development projects.
 
 
+### AI Agent Host Architecture Diagram
+
+ ![AI Agent Host diagram](./ai-agent-host-diagram.png)
+ 
+:pencil: High resolution diagram [Application architecture diagram](https://raw.githubusercontent.com/quantiota/Raspberry-Pi-AI-Agent-Host/master/ai-agent-host-diagram.png)
+
 
    ## References
 
