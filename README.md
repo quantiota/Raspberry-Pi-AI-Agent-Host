@@ -17,7 +17,7 @@ Finally, the AI Agent Host uses lightweight services like QuestDB and Grafana, s
 
 I hope this explanation helps simplify the concept of the AI Agent Host. If you have any further questions or if something is still unclear, feel free to ask!  
 
-
+## Features
 
 The [AI Agent Host](https://github.com/quantiota/AI-Agent-Host), designed specifically for AI development, offers several key features making it an ideal solution for Raspberry Pi 4 with 8GB RAM, especially when running DietPi OS:
 
