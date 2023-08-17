@@ -12,17 +12,17 @@ The BME680 is an integrated environmental sensor developed specifically for mobi
 ## Software Setup
 
 
-1. Update the package list:
+1. I2C: enables support for I2C based hardware:
 
 ```
-sudo apt update
+ [*] 72  I2C: enables support for I2C based hardware
 
 ```
 
-2. Install required development tools:
+2. Reboot:
 
 ```
-sudo apt install build-essential i2c-tools libi2c-dev
+sudo shutdown -r now
 
 ```
 
