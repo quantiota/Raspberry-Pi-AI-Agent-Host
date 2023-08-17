@@ -11,8 +11,17 @@ The BME680 is an integrated environmental sensor developed specifically for mobi
 
 ## Software Setup
 
-
 1. I2C: enables support for I2C based hardware:
+
+With root:dietpi login credentials:
+
+Run dietpi-software from the command line.
+
+```
+dietpi-software
+```
+Choose Browse Software and select I2C. Finally select Install. DietPi will do all the necessary steps to install and start the software item.
+
 
 ```
  [*] 72  I2C: enables support for I2C based hardware
