@@ -166,7 +166,7 @@ When working with Docker, the ***Dockerfile*** acts as a blueprint for building 
 
 ### 6 Set up device mappings
 
-Before initiating your services with Docker Compose, it's crucial to set up device mappings, especially if any of your services require direct access to hardware devices on the host machine.
+Before initiating your services with Docker Compose, it's crucial to set up [device mappings](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/weather-station), especially if any of your services require direct access to hardware devices on the host machine.
 
 In our configuration
 ```
