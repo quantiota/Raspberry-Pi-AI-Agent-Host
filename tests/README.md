@@ -157,9 +157,35 @@ If **htpasswd** is not installed on your system, you can install it with **apt**
 
 ```
 sudo apt-get install apache2-utils
+
+
+### 5 Configure the Dockerfile for your specific needs.
+
+When working with Docker, the ***Dockerfile*** acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic **Dockerfile**, it's often essential to tailor it to your project's unique demands, especially when working with Python applications and their dependencies. Customizing your **Dockerfile** allows you to effectively manage dependencies using a [**requirements.txt**](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/requirements.txt) file, streamlining and tracking the exact package versions your project requires.
+
 ```
 
-### 5 Launch the AI Agent Host using the provided docker-compose configuration.
+
+### 6 Set up device mappings
+
+Before initiating your services with Docker Compose, it's crucial to set up device mappings, especially if any of your services require direct access to hardware devices on the host machine.
+
+In our configuration
+```
+services:
+  vscode:
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
+
+```
+We've explicitly mapped the **/dev/i2c-1** device from the host to **/dev/i2c-1** inside the container. By doing so, when the service **vscode** is launched, it will have the necessary permissions to directly interface with the I2C device as if the service were running directly on the host.
+
+Failing to set up this mapping before running **docker compose up** might lead to issues, as the service won't be able to access or communicate with the desired device, potentially causing errors or incomplete functionality.
+
+It's essential to map these devices in the Docker Compose configuration **before** launching the service to ensure that the required hardware interactions function seamlessly within the containerized environment.
+
+
+### 7 Launch the AI Agent Host using the provided docker-compose configuration.
 After completing these steps, you can bring up the Docker stack using the following command:
 
 ```
@@ -167,9 +193,6 @@ sudo docker compose up --build -d
 ```
 This will start all services as defined in your **docker-compose.yaml** file.
 
-### 6 Configure the Dockerfile for your specific needs.
-
-When working with Docker, the ***Dockerfile*** acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic **Dockerfile**, it's often essential to tailor it to your project's unique demands, especially when working with Python applications and their dependencies. Customizing your **Dockerfile** allows you to effectively manage dependencies using a [**requirements.txt**](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/requirements.txt) file, streamlining and tracking the exact package versions your project requires.
 
 ## Usage
 
