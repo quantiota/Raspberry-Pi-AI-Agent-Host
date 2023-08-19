@@ -16,5 +16,5 @@ host="docker_host_ip_address",
 port="8812"
 ```
 
-Remember to replace <docker_host_ip_address> with the actual IP address of the Docker host where your server is running
+Remember to replace **<docker_host_ip_address>** with the actual IP address of the Docker host where your server is running
 
