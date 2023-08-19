@@ -22,7 +22,7 @@ The specific test results you will obtain depend on the test cases you execute a
 
 ## Getting Started
 
-To test the AI Agent Host on Raspberry Pi 4, follow these steps:
+To test the AI Agent Host, follow these steps:
 
 1. Set up or use an existing environment with Docker installed.
 
@@ -99,7 +99,7 @@ Also, remember to periodically renew your certificates, as Let's Encrypt's certi
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
- 0 5 * * 1 docker compose run certbot renew
+ 0 5 * * 1 sudo docker compose run certbot renew
 
 ```
 
