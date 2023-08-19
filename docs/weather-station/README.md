@@ -61,6 +61,36 @@ sudo i2cdetect -y 1
 
 This command should display a matrix, and one of the addresses should be 0x76 or 0x77, which represents the BME680 sensor.
 
+Here's what you should do:
+
+1. **Identify the correct I2C bus**:
+Use the command i2cdetect -y 0 to scan the /dev/i2c-0 bus.
+
+If you see 0x77 (or any other device address) in the output, it means your BME680 is connected to this bus. If you don't see your device address, scan the other bus with i2cdetect -y 1.
+
+2. **Determine which bus your device is on**:
+If you found your device on /dev/i2c-0, then use that in your Docker configuration. If you found it on /dev/i2c-1, then use that.
+
+3. **Choose the correct address**:
+Whether the address is 0x77 or 0x76 is determined by how the BME680's SDO pin is wired. You found 0x77, so that's the address of your BME680 on whichever I2C bus you found it.
+
+So, for your Docker configuration:
+
+- If you found your device on /dev/i2c-0, use:
+
+```
+devices:
+  - "/dev/i2c-0:/dev/i2c-0"
+```
+- If you found your device on /dev/i2c-1, use:
+
+```
+devices:
+  - "/dev/i2c-1:/dev/i2c-1"
+```
+
+Remember, the important part is identifying which I2C bus your sensor is connected to and then configuring your software or Docker container to use that specific bus.
+
 ## Python Usage
 
 Here's a simple Python script to read data from the BME680 sensor:
