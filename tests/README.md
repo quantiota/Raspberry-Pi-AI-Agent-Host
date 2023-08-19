@@ -161,7 +161,23 @@ sudo apt-get install apache2-utils
 
 ### 5 Configure the Dockerfile for your specific needs.
 
-When working with Docker, the ***Dockerfile*** acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic **Dockerfile**, it's often essential to tailor it to your project's unique demands, especially when working with Python applications and their dependencies. Customizing your **Dockerfile** allows you to effectively manage dependencies using a [**requirements.txt**](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/requirements.txt) file, streamlining and tracking the exact package versions your project requires.
+When working with Docker, the Dockerfile acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic Dockerfile, it's often essential to tailor it to your project's unique demands. This is especially true when working with Python applications and their dependencies, or when there's a need to grant specific permissions like access to the I2C bus.
+
+Customizing your Dockerfile allows you to:
+
+- **Manage Dependencies**: Through the use of a [**requirements.txt**](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/requirements.txt) file, you can streamline and track the exact package versions your project requires.
+
+- **Grant Specific Hardware Permissions**: If your application interacts with hardware interfaces such as I2C, it's necessary to grant the container the right permissions to access and communicate with these devices. In the Dockerfile, you can set up [user groups and permissions](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/README.md) to ensure that your containerized application can successfully access and utilize the I2C bus or other necessary hardware interfaces.
+
+By taking the time to customize your Dockerfile, you ensure that your application runs reliably and consistently in any environment.
+
+This version highlights the importance of customizing the Dockerfile, both for managing Python dependencies and for ensuring proper permissions for hardware access.
+
+
+
+
+
+
 
 
 ### 6 Set up device mappings
