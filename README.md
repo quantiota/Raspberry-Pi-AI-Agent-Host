@@ -96,7 +96,7 @@ cd AI-Agent-Host/docker
 
 ```
 
-Then follow the prerequisites section in this [Tutorial](https://github.com/quantiota/AI-Agent-Host/tree/main/tests) for guidance.
+Then follow the prerequisites section in this [Tutorial](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/tests) for guidance.
 
 ## Usage
 
