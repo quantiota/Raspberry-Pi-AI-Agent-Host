@@ -92,7 +92,7 @@ with dietpi:dietpi login credentials:
 umask 0002
 git clone https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host.git
 umask 0022
-cd AI-Agent-Host/docker
+cd Raspberry-Pi-AI-Agent-Host/docker
 
 ```
 
