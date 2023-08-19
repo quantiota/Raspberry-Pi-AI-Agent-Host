@@ -2,7 +2,7 @@
 
 ### Dockerfile
 
- The fact that the coder user only exists inside the Docker container presents a unique situation. You essentially want to grant permissions from the Docker host to a user inside a container.
+ The fact that the coder user only exists inside the Docker container presents a unique situation. You essentially want to grant permissions from the Docker host to a user inside a container for I2C devices.
 
  Here are the steps you can follow:
 
