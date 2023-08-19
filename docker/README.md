@@ -51,17 +51,17 @@ We will use the Certbot Docker image to generate certificates. This service will
 If you want to obtain separate certificates for each subdomain, you will need to run the **certbot certonly** command for each one. You can specify the subdomain for which you want to obtain a certificate with the -d option, like this:
 
 ```
-docker compose -f init.yaml run certbot certonly -d vscode.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d vscode.yourdomain.tld
 ```
 
 
 ```
-docker compose -f init.yaml run certbot certonly -d questdb.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d questdb.yourdomain.tld
 ```
 
 
 ```
-docker compose -f init.yaml run certbot certonly -d grafana.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d grafana.yourdomain.tld
 ```
 
 **Important:** Replace **'yourdomain.tld'** with your actual domain in the commands above.
@@ -115,7 +115,7 @@ The environment variables will be replaced directly within the Nginx configurati
 The **dhparam.pem** file is used for Diffie-Hellman key exchange, which is part of establishing a secure TLS connection. You can generate it with OpenSSL. Here's how to generate a 2048-bit key:
 
 ```
-openssl dhparam -out ./nginx/certs/dhparam.pem 2048
+sudo openssl dhparam -out ./nginx/certs/dhparam.pem 2048
 ```
 
 Generating a dhparam file can take a long time. For a more secure (but slower) 4096-bit key, simply replace 2048 with 4096 in the above command.
@@ -126,7 +126,7 @@ The user/password are the default one: admin:admin
 
 The **.htpasswd** file is used for basic HTTP authentication. You can change it using the **htpasswd** utility, which is part of the Apache HTTP Server package. Here's how to create an **.htpasswd** file with a user named **yourusername**:
 ```
-htpasswd -c ./nginx/.htpasswd yourusername
+sudo htpasswd -c ./nginx/.htpasswd yourusername
 ```
 This command will prompt you for the password for **yourusername**. The **-c** flag tells **htpasswd** to create a new file. **Caution**: Using the **-c** flag will overwrite any existing **.htpasswd** file. 
 
@@ -140,7 +140,7 @@ sudo apt-get install apache2-utils
 After completing these steps, you can bring up the Docker stack using the following command:
 
 ```
-docker compose up --build -d
+sudo docker compose up --build -d
 ```
 This will start all services as defined in your **docker-compose.yaml** file.
 
