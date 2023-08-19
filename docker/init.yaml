@@ -1,0 +1,9 @@
+version: '3'
+services:
+  certbot:
+    image: certbot/certbot
+    network_mode: host
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - ./nginx/.well-known/:/usr/share/nginx/html/.well-known/
