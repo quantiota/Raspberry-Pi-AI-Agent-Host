@@ -34,7 +34,7 @@ Run dietpi-software from the command line.
 dietpi-software
 ```
 
-Choose Browse Software and select Prometheus Node Exporter, Docker Compose, Docker and Git. Finally select Install.
+Choose Browse Software and select I2C, Prometheus Node Exporter, Docker Compose, Docker and Git. Finally select Install.
 DietPi will do all the necessary steps to install and start these software items.
 
 
