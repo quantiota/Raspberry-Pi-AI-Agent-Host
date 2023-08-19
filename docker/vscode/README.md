@@ -26,12 +26,11 @@ The number **123** in the example above is the group ID of the device.
 
 As the coder user is already a part of the image (like it seems to be in the codercom/code-server image), then you can create a new group inside the Docker container with the gid you found in the previous step and add the coder user to that group.
 
-Add these commands to the Dockerfile:
-
+Modify these commands on the Dockerfile:
 
 ```
 # Replace 955 with the gid you found
 RUN groupadd -g 995 i2cgroup
-RUN usermod -aG i2cgroup code
+RUN usermod -aG i2cgroup coder
 
 ```
