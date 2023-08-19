@@ -22,7 +22,7 @@ pip install bme680 psycopg2
 
 2. **Database Setup**:
 
-The script is set to connect to a PostgreSQL instance with the following credentials:
+The script is set to connect to a QuestDB instance with the following credentials:
 
 
 dbname="qdb",
@@ -55,5 +55,5 @@ Upon running, the script:
 ### Troubleshooting
 
 - If the script fails to connect to the BME680 sensor, ensure it's connected correctly and the appropriate drivers are installed.
-- Ensure your PostgreSQL service is running and accepting connections.
+- Ensure your QuestDB service is running and accepting connections.
 - Double-check the database credentials within the script.
