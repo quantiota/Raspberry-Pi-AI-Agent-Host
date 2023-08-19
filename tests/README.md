@@ -168,7 +168,7 @@ When working with Docker, the ***Dockerfile*** acts as a blueprint for building 
 
 Before initiating your services with Docker Compose, it's crucial to set up [device mappings](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/weather-station), especially if any of your services require direct access to hardware devices on the host machine.
 
-In our configuration
+In our docker compose configuration
 ```
 services:
   vscode:
