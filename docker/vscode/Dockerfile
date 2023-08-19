@@ -14,6 +14,7 @@ COPY requirements.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements.txt
 
 # Additional setup (e.g., group and user modifications)
+# Replace 995 with the gid you find
 RUN groupadd -g 995 i2cgroup
 RUN usermod -aG i2cgroup coder
 
