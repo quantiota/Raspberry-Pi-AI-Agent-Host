@@ -17,7 +17,7 @@ Before executing the script, ensure the following:
 - The database parameters (**dbname**, **user**, **password**, **host**, and **port**) are set correctly in the script.
 - The BME680 sensor is correctly set up and attached to the system.
 
-##Usage
+## Usage
 
 Execute the script to start collecting weather data. Data collection happens every minute.
 
