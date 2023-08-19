@@ -12,6 +12,8 @@ services:
       - ../notebooks:/home/coder/project
     environment:
       - PASSWORD=yourpassword
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
 
   grafana:
     image: grafana/grafana:9.5.1
