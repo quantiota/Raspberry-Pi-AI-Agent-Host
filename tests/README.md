@@ -74,17 +74,17 @@ We will use the Certbot Docker image to generate certificates. This service will
 If you want to obtain separate certificates for each subdomain, you will need to run the **certbot certonly** command for each one. You can specify the subdomain for which you want to obtain a certificate with the -d option, like this:
 
 ```
-docker compose -f init.yaml run certbot certonly -d vscode.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d vscode.yourdomain.tld
 ```
 
 
 ```
-docker compose -f init.yaml run certbot certonly -d questdb.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d questdb.yourdomain.tld
 ```
 
 
 ```
-docker compose -f init.yaml run certbot certonly -d grafana.yourdomain.tld
+sudo docker compose -f init.yaml run certbot certonly -d grafana.yourdomain.tld
 ```
 
 **Important:** Replace **'yourdomain.tld'** with your actual domain in the commands above.
@@ -163,7 +163,7 @@ sudo apt-get install apache2-utils
 After completing these steps, you can bring up the Docker stack using the following command:
 
 ```
-docker compose up --build -d
+sudo docker compose up --build -d
 ```
 This will start all services as defined in your **docker-compose.yaml** file.
 
