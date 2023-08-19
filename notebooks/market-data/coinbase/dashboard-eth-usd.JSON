@@ -1,0 +1,134 @@
+{
+  "id": 2,
+  "gridPos": {
+    "h": 17,
+    "w": 24,
+    "x": 0,
+    "y": 0
+  },
+  "type": "timeseries",
+  "title": "ETH ",
+  "datasource": {
+    "type": "postgres",
+    "uid": "2Bi8EToVz"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "drawStyle": "line",
+        "lineInterpolation": "linear",
+        "barAlignment": 0,
+        "lineWidth": 1,
+        "fillOpacity": 0,
+        "gradientMode": "none",
+        "spanNulls": false,
+        "showPoints": "auto",
+        "pointSize": 5,
+        "stacking": {
+          "mode": "none",
+          "group": "A"
+        },
+        "axisPlacement": "auto",
+        "axisLabel": "",
+        "axisColorMode": "text",
+        "scaleDistribution": {
+          "type": "linear"
+        },
+        "axisCenteredZero": false,
+        "hideFrom": {
+          "tooltip": false,
+          "viz": false,
+          "legend": false
+        },
+        "thresholdsStyle": {
+          "mode": "off"
+        }
+      },
+      "color": {
+        "mode": "palette-classic"
+      },
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      }
+    },
+    "overrides": [
+      {
+        "__systemRef": "hideSeriesFrom",
+        "matcher": {
+          "id": "byNames",
+          "options": {
+            "mode": "exclude",
+            "names": [
+              "open"
+            ],
+            "prefix": "All except:",
+            "readOnly": true
+          }
+        },
+        "properties": [
+          {
+            "id": "custom.hideFrom",
+            "value": {
+              "legend": false,
+              "tooltip": false,
+              "viz": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "options": {
+    "tooltip": {
+      "mode": "single",
+      "sort": "none"
+    },
+    "legend": {
+      "showLegend": true,
+      "displayMode": "list",
+      "placement": "bottom",
+      "calcs": []
+    }
+  },
+  "targets": [
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "2Bi8EToVz"
+      },
+      "editorMode": "code",
+      "format": "table",
+      "rawQuery": true,
+      "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS open,\r\n    last(price) AS close,\r\n    first(size) AS vopen,\r\n    last(size) AS vclose,\r\n    2*pi()*(last(size) - first(size))/first(size)  AS percentage_change,\r\n    min(price),\r\n    max(price),\r\n    sum(size) AS volume,\r\n    cos(sum(size)) AS cos_volume\r\nFROM trades\r\nWHERE symbol = 'ETH-USD' AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1T ALIGN TO CALENDAR;  ",
+      "refId": "A",
+      "sql": {
+        "columns": [
+          {
+            "parameters": [],
+            "type": "function"
+          }
+        ],
+        "groupBy": [
+          {
+            "property": {
+              "type": "string"
+            },
+            "type": "groupBy"
+          }
+        ],
+        "limit": 50
+      }
+    }
+  ]
+}
