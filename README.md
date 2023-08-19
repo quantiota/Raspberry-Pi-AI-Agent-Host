@@ -83,8 +83,13 @@ DietPi will do all the necessary steps to install and start these software items
              |  [*] 17   Git: Clone and manage Git repositories locally                                  
 
 ```
+2. Reboot
 
-2. Clone the AI Agent Host repository and navigate to the docker directory.
+```
+sudo shutdown -r now
+```
+
+3. Clone the AI Agent Host repository and navigate to the docker directory.
 
 with dietpi:dietpi login credentials:
 

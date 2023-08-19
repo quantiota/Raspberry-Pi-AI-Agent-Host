@@ -51,7 +51,13 @@ DietPi will do all the necessary steps to install and start these software items
 
 ```
 
-2. Clone the AI Agent Host repository and navigate to the docker directory.
+2. Reboot
+
+```
+sudo shutdown -r now
+```
+
+3. Clone the AI Agent Host repository and navigate to the docker directory.
 
 with dietpi:dietpi login credentials:
 
