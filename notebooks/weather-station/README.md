@@ -4,7 +4,7 @@
 
 This script interfaces with the BME680 environmental sensor, retrieves its readings, and saves the data into a QuestDB database. It covers temperature, humidity, pressure, and gas resistance readings.
 
-##  Database Setup:
+##  Set up parameter:
 
 The script is set to connect to a QuestDB instance with the following credentials:
 
