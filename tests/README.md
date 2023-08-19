@@ -167,7 +167,7 @@ sudo docker compose up --build -d
 ```
 This will start all services as defined in your **docker-compose.yaml** file.
 
-###  Configure the Dockerfile for your specific needs.
+### 6 Configure the Dockerfile for your specific needs.
 
 When working with Docker, the ***Dockerfile*** acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic **Dockerfile**, it's often essential to tailor it to your project's unique demands, especially when working with Python applications and their dependencies. Customizing your **Dockerfile** allows you to effectively manage dependencies using a [**requirements.txt**](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/blob/main/docker/vscode/requirements.txt) file, streamlining and tracking the exact package versions your project requires.
 
