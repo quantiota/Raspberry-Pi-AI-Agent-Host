@@ -180,7 +180,7 @@ If you want to change the default permissions for **git clone**, you can tempora
 
 ```
 umask 022
-git clone https://github.com/quantiota/AI-Agent-Host.git
+git clone https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host.git
 ```
 
 This will only affect the current shell session. If you want to change the umask permanently, you can add the **umask 022** command to your shell's initialization file (like **~/.bashrc** or **~/.bash_profile** for the Bash shell).
