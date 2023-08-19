@@ -14,6 +14,8 @@ Access VSCode through [localhost:8080](http://localhost:8080).
 :lock:
 The password to access VSCode is `yourpassword` it can be set it in the [docker-compose.yaml file](docker-compose.yaml).
 
+:wrench: To configure VSCode, follow [this documentation](./vscode/README.md).
+
 ### QuestDB
 
 :link: [docker image](https://hub.docker.com/r/questdb/questdb)
