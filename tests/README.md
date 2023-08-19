@@ -171,12 +171,6 @@ Customizing your Dockerfile allows you to:
 
 By taking the time to customize your Dockerfile, you ensure that your application runs reliably and consistently in any environment.
 
-This version highlights the importance of customizing the Dockerfile, both for managing Python dependencies and for ensuring proper permissions for hardware access.
-
-
-
-
-
 
 
 
