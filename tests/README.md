@@ -39,6 +39,8 @@ DietPi will do all the necessary steps to install and start these software items
 
 
 ```
+             |  [*] 72  I2C: enables support for I2C based hardware
+
              |  [*] 99   Prometheus Node Exporter: Prometheus exporter for hardware and OS metrics
 
              │  [*] 134  Docker Compose: Manage multi-container Docker applications                 
