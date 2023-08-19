@@ -161,7 +161,7 @@ sudo apt-get install apache2-utils
 
 ### 5 Configure the Dockerfile for your specific needs.
 
-When working with Docker, the Dockerfile acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic Dockerfile, it's often essential to tailor it to your project's unique demands. This is especially true when working with Python applications and their dependencies, or when there's a need to grant specific permissions like access to the I2C bus.
+When working with Docker, the Dockerfile acts as a blueprint for building containerized applications. While it's possible to utilize a standard or generic Dockerfile, it's often essential to tailor it to your project's unique demands. This is especially true when working with Python applications and their dependencies, or when there's a need to grant specific permissions like access to the [I2C bus](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/weather-station).
 
 Customizing your Dockerfile allows you to:
 
