@@ -138,7 +138,7 @@ The environment variables will be replaced directly within the Nginx configurati
 The **dhparam.pem** file is used for Diffie-Hellman key exchange, which is part of establishing a secure TLS connection. You can generate it with OpenSSL. Here's how to generate a 2048-bit key:
 
 ```
-openssl dhparam -out ./nginx/certs/dhparam.pem 2048
+sudo openssl dhparam -out ./nginx/certs/dhparam.pem 2048
 ```
 
 Generating a dhparam file can take a long time. For a more secure (but slower) 4096-bit key, simply replace 2048 with 4096 in the above command.
@@ -149,7 +149,7 @@ The user/password are the default one: admin:admin
 
 The **.htpasswd** file is used for basic HTTP authentication. You can change it using the **htpasswd** utility, which is part of the Apache HTTP Server package. Here's how to create an **.htpasswd** file with a user named **yourusername**:
 ```
-htpasswd -c ./nginx/.htpasswd yourusername
+sudo htpasswd -c ./nginx/.htpasswd yourusername
 ```
 This command will prompt you for the password for **yourusername**. The **-c** flag tells **htpasswd** to create a new file. **Caution**: Using the **-c** flag will overwrite any existing **.htpasswd** file. 
 
