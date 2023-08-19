@@ -22,7 +22,7 @@ The specific test results you will obtain depend on the test cases you execute a
 
 ## Getting Started
 
-To test the AI Agent Host, follow these steps:
+To test the AI Agent Host on Raspberry Pi 4, follow these steps:
 
 1. Set up or use an existing environment with Docker installed.
 
