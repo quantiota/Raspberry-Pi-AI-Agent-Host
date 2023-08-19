@@ -1,5 +1,6 @@
 ## How to test
-The AI Agent Host was tested on DietPi 8.20 and Ubuntu 22.04. No other Linux distributions have been tested, but the instructions should be reasonably straightforward to adapt.
+
+The AI Agent Host was tested on DietPi installed on a Raspberry Pi 4 8GB. No other Linux distributions have been tested, but the instructions should be reasonably straightforward to adapt.
 
 When testing the AI Agent Host, you can expect several types of test results depending on the specific aspects you are testing. Here are some common types of test results you might encounter:
 
@@ -23,11 +24,39 @@ The specific test results you will obtain depend on the test cases you execute a
 
 To test the AI Agent Host, follow these steps:
 
-1. Set up or use an existing environment with [Docker](https://github.com/quantiota/AI-Agent-Farm/tree/master/doc/webapps/docker) installed.
+1. Set up or use an existing environment with Docker installed.
+
+With root:dietpi login credentials:
+
+Run dietpi-software from the command line.
+
+```
+dietpi-software
+```
+
+Choose Browse Software and select Prometheus Node Exporter, Docker Compose, Docker and Git. Finally select Install.
+DietPi will do all the necessary steps to install and start these software items.
+
+
+```
+             |  [*] 99   Prometheus Node Exporter: Prometheus exporter for hardware and OS metrics
+
+             │  [*] 134  Docker Compose: Manage multi-container Docker applications                 
+                 
+             │  [*] 162  Docker: Build, ship, and run distributed applications    
+
+             |  [*] 17   Git: Clone and manage Git repositories locally                                  
+
+```
 
 2. Clone the AI Agent Host repository and navigate to the docker directory.
+
+with dietpi:dietpi login credentials:
+
 ```
+umask 0002
 git clone https://github.com/quantiota/AI-Agent-Host.git
+umask 0022
 cd AI-Agent-Host/docker
 
 ```
