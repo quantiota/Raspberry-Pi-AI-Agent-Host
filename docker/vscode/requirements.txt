@@ -1,0 +1,4 @@
+
+bme680==1.1.1   <- Comment or uncomment based on the application
+psycopg2-binary==2.9.7
+# some-healthcare-package==x.y.z   <- Comment or uncomment based on the application
