@@ -5,17 +5,17 @@ This script uses the BME680 sensor to collect weather-related data such as tempe
 
 ### Requirements
 
-bme680 Python library.
-psycopg2 Python library.
-A running instance of QuestDB with appropriate credentials.
-BME680 sensor attached to the executing system.
+- **bme680** Python library.
+- **psycopg2** Python library.
+- A running instance of QuestDB with appropriate credentials.
+- BME680 sensor attached to the executing system.
 
 
 ### Configuration
 Before executing the script, ensure the following:
 
-The database parameters (`**dbname**`, `**user**`, `**password**`, `**host**`, and `**port**`) are set correctly in the script.
-The BME680 sensor is correctly set up and attached to the system.
+- The database parameters (**dbname**, **user**, **password**, **host**, and **port**) are set correctly in the script.
+- The BME680 sensor is correctly set up and attached to the system.
 
 ##Usage
 
