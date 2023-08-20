@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import psycopg2
 
-print("""indoor-air-quality.py - Estimates indoor air quality.
+print("""
 
 Runs the sensor for a burn-in period, then uses a
 combination of relative humidity and gas resistance
