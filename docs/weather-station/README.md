@@ -35,7 +35,7 @@ sudo shutdown -r now
 
 ```
 
-3. Install the Python library for the BME680 sensor:
+3. For testing purpose only, install the Python library for the BME680 sensor:
 
 ```
 sudo pip3 install bme680
