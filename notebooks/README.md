@@ -11,7 +11,6 @@ We are planning to develop a suite of data stream processing notebooks alongside
 The available data sources are categorized based on domains:
 
 - **AI Human Interface**:
-
      - Integration with cameras and microphones for real-time human interaction data.
      - Natural language processing to decipher human emotions, intentions, and commands.
 
