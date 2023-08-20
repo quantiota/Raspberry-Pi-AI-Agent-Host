@@ -74,7 +74,7 @@ If you found your device on /dev/i2c-0, then use that in your Docker configurati
 3. **Choose the correct address**:
 Whether the address is 0x77 or 0x76 is determined by how the BME680's SDO pin is wired. You found 0x77, so that's the address of your BME680 on whichever I2C bus you found it.
 
-So, for your Docker configuration:
+So, for your Docker Compose configuration:
 
 - If you found your device on /dev/i2c-0, use:
 
