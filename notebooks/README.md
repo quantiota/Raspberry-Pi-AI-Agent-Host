@@ -30,9 +30,14 @@ The available data sources are categorized based on domains:
     - Real-time data feeds from weather sensors like temperature, humidity, pressure, etc.
     - Historical weather data repositories for trend analysis and prediction.
 
+- **Market Data**:
+    - Live stock prices, commodities data, and forex rates.
+    - Historical trade data and financial indicators for diverse markets.
+    - News streams related to financial markets.
+
 - **General Data Streams**:
     - Public datasets from Kaggle or UCI Machine Learning Repository.
-    - Streaming platforms like Twitter API or stock market data.
+    - Streaming platforms like Twitter API.
     - Web scraping utilities to extract data from varied online sources.
 
 ### Machine Learning Templates
@@ -44,6 +49,7 @@ For each domain, we will offer specific machine learning templates:
 - **Healthcare**: Predictive analytics, disease detection, health trend analysis.
 - **Vehicle Tracking**: Route optimization, vehicle health diagnostics, traffic prediction.
 - **Weather Station**: Weather trend analysis, prediction models for climate changes, rain prediction.
+- **Market Data**: Algorithmic trading strategies, risk analysis, market sentiment analysis.
 
 ### Goal
 
