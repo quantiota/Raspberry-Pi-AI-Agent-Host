@@ -53,7 +53,7 @@ Please note that while we strive to keep this document up-to-date, the field of 
 
 ## Getting Started 
 
-To test the AI Agent Host, follow these steps:
+To use the AI Agent Host, follow these steps:
 
 1. Set up or use an existing environment with Docker installed.
 
