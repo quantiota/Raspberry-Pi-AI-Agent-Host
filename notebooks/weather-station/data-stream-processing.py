@@ -20,7 +20,7 @@ conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="82.64.128.247",
+    host="docker_host_ip_address",
     port="8812"
 )
 
