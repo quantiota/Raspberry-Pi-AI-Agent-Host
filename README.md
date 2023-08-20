@@ -117,7 +117,7 @@ Then follow the prerequisites section in this [Tutorial](https://github.com/quan
 
 ### 3 Start working with your notebooks and data, using the pre-installed tools and libraries included in your remote environment.
 
-You can also run the existing notebook in the project folder within VSCode. Follow this [tutorial](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/notebooks/market-data/coinbase) for guidance.
+You can also run the existing notebook in the project folder within VSCode. Follow this [tutorial](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/notebooks/weather-station) for guidance.
 
 
 
