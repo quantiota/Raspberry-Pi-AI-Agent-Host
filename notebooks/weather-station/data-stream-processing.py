@@ -68,7 +68,7 @@ sensor.select_gas_heater_profile(0)
 
 start_time = time.time()
 curr_time = time.time()
-burn_in_time = 30
+burn_in_time = 300
 burn_in_data = []
 
     # Collect gas resistance burn-in values, then use the average
@@ -134,4 +134,4 @@ while True:
 
       
         print("Sensor data inserted:", temperature, humidity, pressure, gas_resistance, iaq, timestamp)
-        time.sleep(1)  # Wait for 60 seconds before next reading
+        time.sleep(60)  # Wait for 60 seconds before next reading
