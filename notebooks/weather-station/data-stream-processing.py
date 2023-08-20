@@ -27,17 +27,8 @@ conn = psycopg2.connect(
 # Create the necessary table if it doesn't exist
 with conn:
     cursor = conn.cursor()
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS weather_data (
-        temperature DOUBLE,
-        humidity DOUBLE,
-        pressure DOUBLE,
-        gas_resistance DOUBLE,
-        iaq DOUBLE,
-        timestamp TIMESTAMP
-    );
-    """)
-    cursor.close()
+    cursor.execute("CREATE TABLE  IF NOT EXISTS weather_data (temperature DOUBLE, humidity DOUBLE, pressure DOUBLE, gas_resistance DOUBLE, iaq DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
+
 
 # Initialize the BME680 sensor
 # These oversampling settings can be tweaked to
@@ -68,7 +59,7 @@ sensor.select_gas_heater_profile(0)
 
 start_time = time.time()
 curr_time = time.time()
-burn_in_time = 300
+burn_in_time = 290
 burn_in_data = []
 
     # Collect gas resistance burn-in values, then use the average
@@ -129,9 +120,10 @@ while True:
         # Insert data into the database
         with conn:
             cursor = conn.cursor()
+            # Insert sensor data into the table
             insert_query = "INSERT INTO weather_data (temperature, humidity, pressure, gas_resistance, iaq, timestamp) VALUES (%s, %s, %s, %s, %s, %s);"
             cursor.execute(insert_query, (temperature, humidity, pressure, gas_resistance, iaq, timestamp))
 
-      
         print("Sensor data inserted:", temperature, humidity, pressure, gas_resistance, iaq, timestamp)
+      
         time.sleep(60)  # Wait for 60 seconds before next reading
