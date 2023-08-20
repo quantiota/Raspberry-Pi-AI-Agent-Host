@@ -53,8 +53,6 @@ Please note that while we strive to keep this document up-to-date, the field of 
 
 ## Getting Started 
 
-The AI Agent Host was tested on DietPi installed on a Raspberry Pi 4 8GB. No other Linux distributions have been tested, but the instructions should be reasonably straightforward to adapt.
-
 To test the AI Agent Host, follow these steps:
 
 1. Set up or use an existing environment with Docker installed.
