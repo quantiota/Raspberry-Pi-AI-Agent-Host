@@ -15,27 +15,22 @@ The available data sources are categorized based on domains:
      - Natural language processing to decipher human emotions, intentions, and commands.
 
 - **Computer Vision**:
-
       - Access to public image datasets for object detection, facial recognition, etc.
       - Tools for image processing and analysis.
 
 - **Healthcare**:
-
        - Data from health monitoring devices like wearables capturing heart rate, sleep patterns, etc.
        - Patient data repositories and Electronic Health Records (EHRs).
 
 - **Vehicle Tracking**:
-
        - Telematics data from on-board vehicle sensors, recording speed, location, and diagnostics.
        - Traffic and route data for real-time navigation and traffic prediction.
 
 - **Weather Station**:
-
        - Real-time data feeds from weather sensors like temperature, humidity, pressure, etc.
        - Historical weather data repositories for trend analysis and prediction.
 
 - **General Data Streams**:
-
        - Public datasets from Kaggle or UCI Machine Learning Repository.
        - Streaming platforms like Twitter API or stock market data.
        - Web scraping utilities to extract data from varied online sources.
