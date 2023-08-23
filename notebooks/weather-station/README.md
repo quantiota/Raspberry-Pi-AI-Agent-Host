@@ -18,3 +18,18 @@ port="8812"
 
 Remember to replace **<docker_host_ip_address>** with the actual IP address of the Docker host where your server is running
 
+### Weather Data query
+
+```
+-- Retrieve the timestamp and temperature values
+SELECT
+    timestamp,        -- Select the timestamp of the data
+    temperature       -- Select the temperature value
+FROM  
+    weather_data      -- From the 'weather_data' table
+WHERE 
+    timestamp > dateadd('d', -1, now()); -- Only select data from the past 24 hours
+
+```
+
+This Grafana query retrieves the timestamp and corresponding temperature values from the **weather_data** table. It's specifically designed to only fetch data from the last 24 hours, ensuring that dashboard viewers are presented with the most recent day's temperature trends. By focusing on this short timeframe, users can gain insights into daily temperature fluctuations and patterns, which can be especially valuable for real-time monitoring or short-term data analysis.
