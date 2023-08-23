@@ -33,3 +33,10 @@ WHERE
 ```
 
 This Grafana query retrieves the timestamp and corresponding temperature values from the **weather_data** table. It's specifically designed to only fetch data from the last 24 hours, ensuring that dashboard viewers are presented with the most recent day's temperature trends. By focusing on this short timeframe, users can gain insights into daily temperature fluctuations and patterns, which can be especially valuable for real-time monitoring or short-term data analysis.
+
+### Dashboard
+
+
+
+[Weather Station Dashboard](./weather_station_bme680.png)
+
