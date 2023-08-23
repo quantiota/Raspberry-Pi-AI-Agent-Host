@@ -1,0 +1,5 @@
+SELECT
+timestamp,
+temperature
+FROM  weather_data
+WHERE timestamp > dateadd('d', -1, now())
