@@ -38,5 +38,5 @@ This Grafana query retrieves the timestamp and corresponding temperature values 
 
 
 
-[Weather Station Dashboard](./weather_station_bme680.png)
+![Weather Station Dashboard](./weather_station_bme680.png)
 
