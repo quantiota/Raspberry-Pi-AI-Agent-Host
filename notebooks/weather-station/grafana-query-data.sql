@@ -3,7 +3,7 @@
 
 SELECT
     timestamp,        -- Select the timestamp of the data
-    data      -- Select the temperature value
+    data              -- Select the data value
 FROM  
     weather_data      -- From the 'weather_data' table
 WHERE 
