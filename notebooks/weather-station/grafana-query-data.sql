@@ -1,5 +1,5 @@
 
--- Retrieve the timestamp and data values: temerature, humidity, pressure, iaq
+-- Retrieve the timestamp and data values: temperature, humidity, pressure, iaq
 
 SELECT
     timestamp,        -- Select the timestamp of the data
