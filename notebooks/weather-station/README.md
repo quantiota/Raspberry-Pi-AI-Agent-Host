@@ -25,7 +25,7 @@ Remember to replace **<docker_host_ip_address>** with the actual IP address of t
 
 SELECT
     timestamp,        -- Select the timestamp of the data
-    data      -- Select the temperature value
+    data              -- Select the data value
 FROM  
     weather_data      -- From the 'weather_data' table
 WHERE 
