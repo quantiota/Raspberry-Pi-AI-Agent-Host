@@ -21,10 +21,11 @@ Remember to replace **<docker_host_ip_address>** with the actual IP address of t
 ### Weather Data query
 
 ```
--- Retrieve the timestamp and temperature values
+-- Retrieve the timestamp and data values: temerature, humidity, pressure, iaq
+
 SELECT
     timestamp,        -- Select the timestamp of the data
-    temperature       -- Select the temperature value
+    data      -- Select the temperature value
 FROM  
     weather_data      -- From the 'weather_data' table
 WHERE 
@@ -32,7 +33,7 @@ WHERE
 
 ```
 
-This Grafana query retrieves the timestamp and corresponding temperature values from the **weather_data** table. It's specifically designed to only fetch data from the last 24 hours, ensuring that dashboard viewers are presented with the most recent day's temperature trends. By focusing on this short timeframe, users can gain insights into daily temperature fluctuations and patterns, which can be especially valuable for real-time monitoring or short-term data analysis.
+This Grafana query retrieves the timestamp and corresponding data values from the **weather_data** table. It's specifically designed to only fetch data from the last 24 hours, ensuring that dashboard viewers are presented with the most recent day's temperature trends. By focusing on this short timeframe, users can gain insights into daily data fluctuations and patterns, which can be especially valuable for real-time monitoring or short-term data analysis.
 
 ### Dashboard
 
