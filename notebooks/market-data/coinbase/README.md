@@ -55,3 +55,5 @@ SQL query written for QuestDB, a time-series database optimized for high-perform
 
 ## Grafana Dashboard for Time-Series Data Visualization of ETH (Ethereum) and BTC (Bitcoin) with QuestDB Data Source and SQL Query
 JSON dashboard file for Grafana, a platform for monitoring and visualizing metrics from various data sources. The dashboard has an ID of 1 and showcases time-series data for both ETH (Ethereum) and BTC (Bitcoin). The data is pulled from a QuestDB data source with the use of SQL queries that fetch metrics like real-time prices for the past 24 hours. The dashboard features two panels: one for displaying the prices of ETH and BTC, and another focusing on the price and volume of ETH.  
+
+ ![dashboard coinbase](./dashboard-coinbase.png)
