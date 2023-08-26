@@ -42,7 +42,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "ETH",
+            "axisLabel": "ETH-USD",
             "axisPlacement": "left",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -70,7 +70,6 @@
               "mode": "off"
             }
           },
-          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -85,7 +84,7 @@
               }
             ]
           },
-          "unit": "currencyUSD"
+          "unit": "none"
         },
         "overrides": [
           {
@@ -100,7 +99,7 @@
               },
               {
                 "id": "custom.axisLabel",
-                "value": "BTC"
+                "value": "BTC-USD"
               },
               {
                 "id": "custom.axisWidth"
@@ -111,10 +110,6 @@
                   "fixedColor": "yellow",
                   "mode": "fixed"
                 }
-              },
-              {
-                "id": "unit",
-                "value": "currencyUSD"
               }
             ]
           }
@@ -217,7 +212,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "ETH",
+            "axisLabel": "ETH-USD",
             "axisPlacement": "left",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -245,7 +240,6 @@
               "mode": "off"
             }
           },
-          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -260,7 +254,7 @@
               }
             ]
           },
-          "unit": "currencyUSD"
+          "unit": "none"
         },
         "overrides": [
           {
@@ -395,6 +389,6 @@
   "timezone": "",
   "title": "Coinbase ETH BTC",
   "uid": "MNhO0-aVk",
-  "version": 52,
+  "version": 58,
   "weekStart": ""
 }
