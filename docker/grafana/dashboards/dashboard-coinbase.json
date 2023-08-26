@@ -33,6 +33,7 @@
         "type": "postgres",
         "uid": "2Bi8EToVz"
       },
+      "description": "Coinbase",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -69,6 +70,7 @@
               "mode": "off"
             }
           },
+          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -113,21 +115,6 @@
               {
                 "id": "unit",
                 "value": "currencyUSD"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "openETH"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
               }
             ]
           }
@@ -258,6 +245,7 @@
               "mode": "off"
             }
           },
+          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -407,6 +395,6 @@
   "timezone": "",
   "title": "Coinbase ETH BTC",
   "uid": "MNhO0-aVk",
-  "version": 44,
+  "version": 52,
   "weekStart": ""
 }
