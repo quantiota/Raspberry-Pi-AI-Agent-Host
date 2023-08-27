@@ -22,6 +22,6 @@ RUN usermod -aG i2cgroup coder
 USER coder
 
 # Install the Visual Studio Code extensions
-RUN code-server --install-extension ms-toolsai.jupyter \
+RUN code-server --install-extension ms-toolsai.jupyter@2023.4.1001091014 \
                 --install-extension ms-toolsai.vscode-jupyter-powertoys \
                 --install-extension ms-python.python
