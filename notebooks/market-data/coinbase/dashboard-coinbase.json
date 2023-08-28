@@ -377,7 +377,10 @@
   "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "ETH-USD",
+    "BTC-USD"
+  ],
   "templating": {
     "list": []
   },
