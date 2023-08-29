@@ -1,0 +1,1 @@
+{"version":3,"file":"module.js","names":["TrackMapCtrl"],"sources":["../src/module.js"],"sourcesContent":["import {TrackMapCtrl} from './trackmap_ctrl';\n\nexport {\n  TrackMapCtrl as PanelCtrl\n};\n"],"mappings":";;;;;;MAAQA,YAAY,kBAAZA,YAAY;IAAA;IAAA;MAAA,qBAGlBA,YAAY;IAAA;EAAA;AAAA"}
