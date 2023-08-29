@@ -22,7 +22,7 @@ with conn:
 # Simulate a vehicle path
 client = ors.Client(key='YOUR_OPENROUTESERVICES_KEY')
 
-# Enter a start and end address location
+# Enter a start ---> end address location
 start_latitude = 45.208180
 start_longitude = 5.760760
 end_latitude = 45.209860
