@@ -33,7 +33,7 @@
         "type": "postgres",
         "uid": "2Bi8EToVz"
       },
-      "description": "Coinbase",
+      "description": "Coinbase live data for ETH and BTC",
       "fieldConfig": {
         "defaults": {
           "color": {
