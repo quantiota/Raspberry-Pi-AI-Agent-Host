@@ -52,7 +52,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT timestamp,\r\nlatitude\r\nFROM gps_data\r\nWHERE timestamp IN '2023-08-29'",
+          "rawSql": "SELECT timestamp,\r\nlatitude\r\nFROM gps_data\r\nWHERE timestamp > dateadd('d', -1, now());",
           "refId": "A",
           "sql": {
             "columns": [
@@ -81,7 +81,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT timestamp,\r\nlongitude\r\nFROM gps_data\r\nWHERE timestamp IN '2023-08-29'",
+          "rawSql": "SELECT timestamp,\r\nlongitude\r\nFROM gps_data\r\nWHERE timestamp > dateadd('d', -1, now());",
           "refId": "B",
           "sql": {
             "columns": [
@@ -123,6 +123,6 @@
   "timezone": "",
   "title": "GPS Tracker",
   "uid": "b771f6fa-e4ad-4df8-a9a5-2c10b67f00f9",
-  "version": 8,
+  "version": 9,
   "weekStart": ""
 }
