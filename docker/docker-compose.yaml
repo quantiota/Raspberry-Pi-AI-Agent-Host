@@ -28,6 +28,7 @@ services:
       - questdb
     environment:
       - GRAFANA_QUESTDB_PASSWORD=quest
+      - GF_INSTALL_PLUGINS=pr0ps-trackmap-panel
 
   questdb:
     image: questdb/questdb:7.3
