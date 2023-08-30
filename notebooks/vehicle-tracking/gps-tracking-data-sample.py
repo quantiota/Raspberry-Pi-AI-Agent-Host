@@ -1,4 +1,4 @@
-
+# Import necessary libraries
 from datetime import datetime, timedelta
 import time
 import psycopg2
@@ -19,25 +19,29 @@ with conn:
     cursor.execute("CREATE TABLE IF NOT EXISTS gps_data (latitude DOUBLE, longitude DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
 
 
-# Simulate a vehicle path
+# Initialize the OpenRouteService client with an API key
 client = ors.Client(key='YOUR_OPENROUTESERVICES_KEY')
 
-# Enter a start ---> end address location
+# Define the start and end coordinates for the simulated vehicle path
 start_latitude = 45.208180
 start_longitude = 5.760760
 end_latitude = 45.209860
 end_longitude = 5.783540
 
+# Get directions from start to end coordinates
 directions = client.directions(
     coordinates=[(start_longitude, start_latitude), (end_longitude, end_latitude)],
     profile='driving-car',
 )
 
+# Extract the geometry of the route and decode it into coordinates
 geometry = directions['routes'][0]['geometry']
 coordinates = ors.convert.decode_polyline(geometry, is3d=False)
 
+# Get the current timestamp
 current_time = datetime.now()
 
+# Insert the coordinates into the database with timestamps
 with conn:
     cursor = conn.cursor()
     for coordinate in coordinates['coordinates']:
@@ -49,5 +53,5 @@ with conn:
             (latitude, longitude, current_time)
         )
 
-        # Increment current time
+       # Increment current time for the next coordinate
         current_time += timedelta(seconds=30)
