@@ -4,7 +4,7 @@ import time
 import psycopg2
 import openrouteservice as ors
 
-# Connect to the PostgreSQL database
+# Connect to the QuestDB database
 conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
