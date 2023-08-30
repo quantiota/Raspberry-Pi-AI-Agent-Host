@@ -1,3 +1,15 @@
+
+#  Simulated GPS Tracking Data Collection Script
+
+# This script appears to simulate a vehicle path using 
+# GPS coordinates and stores the data in a QuestDB database 
+# using psycopg2. The script also uses the OpenRouteService API 
+# to calculate directions between two points and decodes the 
+# resulting geometry into a set of coordinates. The comments 
+# added above each section provide explanations for what 
+#t he code does in each step.
+
+
 # Import necessary libraries
 from datetime import datetime, timedelta
 import time
