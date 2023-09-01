@@ -1,4 +1,4 @@
-## BME680 Sensor Data Collector
+## BME680 Weather Station
 
 ### Overview
 
