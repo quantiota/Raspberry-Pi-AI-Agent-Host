@@ -12,11 +12,11 @@ The script is set to connect to a QuestDB instance with the following credential
 dbname="qdb",
 user="admin",
 password="quest",
-host="docker_host_ip_address",
+host="yourhost.freeddns.org",
 port="8812"
 ```
 
-Remember to replace **<docker_host_ip_address>** with the actual IP address of the Docker host where your server is running
+Remember to replace **<yourhost.freeddns.org>** with the actual DDNS domain name that points to the IP address of the Docker host where your Raspberry Pi is running.
 
 ### GPS Tracker Data query
 
