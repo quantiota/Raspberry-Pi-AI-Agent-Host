@@ -6,7 +6,9 @@ This script is designed to interact with the SIM7600E-H 4G HAT GPS module to ret
 
 ###  Set up parameter:
 
-After installing the AI Agent Host, open VS Code in your browser through an HTTPS connection. Navigate to '>project/vehicle-tracking/data-stream-processing.py'.
+After installing the AI Agent Host, open VS Code in your browser through an HTTPS connection. 
+
+Navigate to `>project/vehicle-tracking/data-stream-processing.py`.
 The script is pre-configured to connect to a QuestDB instance using the following credentials:
 
 ```
