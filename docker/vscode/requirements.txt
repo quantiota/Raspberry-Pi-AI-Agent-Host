@@ -6,4 +6,4 @@ psycopg2-binary==2.9.7
 # some-healthcare-package==x.y.z   <- Comment or uncomment based on the application
 # some-GPStracker-package==x.y.z   <- Comment or uncomment based on the application
 openrouteservice==2.3.3
-serial==0.0.97
+pyserial==3.5
