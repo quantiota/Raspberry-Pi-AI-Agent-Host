@@ -14,9 +14,12 @@ COPY requirements.txt /tmp/
 RUN python3 -m pip install -r /tmp/requirements.txt
 
 # Additional setup (e.g., group and user modifications)
-# Replace 995 with the gid you find
+# Replace 995 with the gid you find for the I2C Interface
 RUN groupadd -g 995 i2cgroup
 RUN usermod -aG i2cgroup coder
+
+# Add the coder user to the dialout group for GPS communication with serial port /dev/ttyS0
+RUN usermod -aG dialout coder
 
 # Switch to coder user
 USER coder
