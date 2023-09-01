@@ -28,7 +28,7 @@ conn = psycopg2.connect(
 # Create the necessary table if it doesn't exist
 with conn:
     cursor = conn.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS gps_data (latitude DOUBLE, longitude DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
+    cursor.execute("CREATE TABLE IF NOT EXISTS gps_data_sample (latitude DOUBLE, longitude DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
 
 
 # Initialize the OpenRouteService client with an API key
@@ -61,7 +61,7 @@ with conn:
 
         # Insert data into the gps_data table
         cursor.execute(
-            "INSERT INTO gps_data (latitude, longitude, timestamp) VALUES (%s, %s, %s);",
+            "INSERT INTO gps_data_sample (latitude, longitude, timestamp) VALUES (%s, %s, %s);",
             (latitude, longitude, current_time)
         )
 
