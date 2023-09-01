@@ -6,7 +6,8 @@ This script is designed to interact with the SIM7600E-H 4G HAT GPS module to ret
 
 ###  Set up parameter:
 
-The script is set to connect to a QuestDB instance with the following credentials:
+After installing the AI Agent Host, open VS Code in your browser through an HTTPS connection. Navigate to >project/vehicle-tracking/data-stream-processing.py.
+The script is pre-configured to connect to a QuestDB instance using the following credentials:
 
 ```
 dbname="qdb",
@@ -35,7 +36,14 @@ WHERE
 
 This Grafana query retrieves the timestamp and corresponding data values from the **gps_data** table. It's specifically designed to only fetch data from the last 24 hours, ensuring that dashboard viewers are presented with the most recent day's data trends. By focusing on this short timeframe, users can gain insights into daily data fluctuations and patterns, which can be especially valuable for real-time monitoring or short-term data analysis.
 
-### Dashboard
+
+
+### Run Python File in Terminal:
+Execute the Python script from the terminal to start collecting gps data data.
+
+
+### Connect to Grafana Dashboard:
+Open your browser and navigate to the Grafana interface. Select the GPS Tracker dashboard to start monitoring your data in real-time
 
 
 
