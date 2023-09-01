@@ -12,7 +12,7 @@ conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="docker_host_ip_address",
+    host="yourhost.freeddns.org",
     port="8812"
 )
 
