@@ -62,6 +62,8 @@ While the pre-configured GPS tracker setup is designed to work out of the box, y
 
 - **Integrate with External Services**: If you have specific external services or APIs you'd like to integrate with, you can modify the Python script to send data to those services. This could include data storage in cloud platforms, real-time alerts, or other notifications.
 
+- **Utilize SD Card Storage**: Take advantage of the SD Card slot on the SIM7600G-H 4G to create a backup of the database. This ensures data redundancy and availability in various scenarios.
+
 - **Fine-Tune GPS Accuracy**: Depending on your tracking needs, you can explore ways to improve GPS accuracy, such as fine-tuning the frequency of data collection, incorporating more advanced GPS modules, or implementing data filtering algorithms.
 
 - **Advanced Analytics**: If you're looking to extract advanced insights from the collected GPS data, you can incorporate data analysis techniques, machine learning models, or predictive analytics to derive valuable information from the tracker's data stream.
