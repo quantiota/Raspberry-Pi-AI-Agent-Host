@@ -41,7 +41,7 @@ This Grafana query retrieves the timestamp and corresponding data values from th
 
 
 ### Run Python File in Terminal:
-Execute the Python script from the terminal to start collecting gps data data.
+Execute the Python script from the terminal to start collecting gps data.
 
 
 ### Connect to Grafana Dashboard:
