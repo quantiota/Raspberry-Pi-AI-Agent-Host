@@ -1,18 +1,15 @@
-
-from datetime import datetime, timedelta
-#!/usr/bin/python3
-# -*- coding:utf-8 -*-
-
+import subprocess
 import psycopg2
 import serial
 import time
+
 
 # Connect to the QuestDB database
 conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="yourhost.freeddns.org",
+    host="quantiota.com",
     port="8812"
 )
 
@@ -21,6 +18,7 @@ with conn:
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS gps_data (latitude DOUBLE, longitude DOUBLE, altitude DOUBLE, speed DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
 
+subprocess.run(['sudo', 'wvdial', 'Defaults'])
 
 
 ser = serial.Serial('/dev/ttyS0', 115200)
@@ -52,26 +50,34 @@ def get_gps_position():
             latitude_direction = gps_info_list[1]
             longitude = gps_info_list[2]
             longitude_direction = gps_info_list[3]
+          
+            try:
+                latitude_degree = float(latitude[:2])
+                latitude_minute = float(latitude[2:])
+                latitude = latitude_degree + latitude_minute / 60.0
 
-            latitude_degree = float(latitude[:2])
-            latitude_minute = float(latitude[2:])
-            latitude = latitude_degree + latitude_minute / 60.0
+                longitude_degree = float(longitude[:3])
+                longitude_minute = float(longitude[3:])
+                longitude = longitude_degree + longitude_minute / 60.0
 
-            longitude_degree = float(longitude[:3])
-            longitude_minute = float(longitude[3:])
-            longitude = longitude_degree + longitude_minute / 60.0
+                date = gps_info_list[4]
+                time_utc = float(gps_info_list[5])
+                altitude = float(gps_info_list[6])
+                speed = float(gps_info_list[7])
+            except ValueError:
+                print("Error converting data to float, skipping data point")
+                continue  # Skip this data point and move to the next iteration
 
-            date = gps_info_list[4]
-            time_utc = float(gps_info_list[5])
-            altitude = float(gps_info_list[6])
-            speed = float(gps_info_list[7])
-
+            
             print(f"Latitude: {latitude} {latitude_direction}")
             print(f"Longitude: {longitude} {longitude_direction}")
             print(f"Date: {date}")
             print(f"Time: {time_utc}")
             print(f"Altitude: {altitude} m")
             print(f"Speed: {speed} knots")
+
+
+
 
             # Insert data into the QuestDB table
             with conn:
@@ -94,4 +100,3 @@ finally:
         ser.close()
     if conn is not None:
         conn.close()
-
