@@ -3,12 +3,23 @@ import serial
 import time
 
 
+def reset_gps_module():
+    print("Resetting GPS module...")
+    # Implement your GPS module reset process here
+
+    ser.write(('AT+CFUN=0\r\n').encode())  # Power off
+    time.sleep(1)
+    ser.write(('AT+CFUN=1\r\n').encode())  # Power on
+    time.sleep(5)  # Wait for module to initialize
+    print('GPS module reset completed')
+
+
 # Connect to the QuestDB database
 conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="yourhost.freeddns.org",
+    host="quantiota.com",
     port="8812"
 )
 
@@ -32,13 +43,16 @@ def send_at(command, back, timeout):
         rec_buff = ser.read(ser.inWaiting()).decode()
     return rec_buff
 
+
 def get_gps_position():
     rec_null = True
     answer = ''
+
+    # Reset the GPS module
+    reset_gps_module()
     print('Start GPS session...')
-    send_at('ATE1', 'OK', 1)  # Enable AT command echo
     send_at('AT+CGPS=1,1', 'OK', 1)  # Enable GPS
-    time.sleep(2)
+    time.sleep(5)  # Add a delay
     
     while True:
         answer = send_at('AT+CGPSINFO', '+CGPSINFO: ', 1)
