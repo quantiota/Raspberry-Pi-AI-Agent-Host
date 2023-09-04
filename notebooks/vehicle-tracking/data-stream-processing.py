@@ -3,15 +3,7 @@ import serial
 import time
 
 
-def reset_gps_module():
-    print("Resetting GPS module...")
-    # Implement your GPS module reset process here
-
-    ser.write(('AT+CFUN=0\r\n').encode())  # Power off
-    time.sleep(1)
-    ser.write(('AT+CFUN=1\r\n').encode())  # Power on
-    time.sleep(5)  # Wait for module to initialize
-    print('GPS module reset completed')
+# Initialize the GPS connection
 
 
 # Connect to the QuestDB database
@@ -47,9 +39,6 @@ def send_at(command, back, timeout):
 def get_gps_position():
     rec_null = True
     answer = ''
-
-    # Reset the GPS module
-    reset_gps_module()
     print('Start GPS session...')
     send_at('AT+CGPS=1,1', 'OK', 1)  # Enable GPS
     time.sleep(5)  # Add a delay
