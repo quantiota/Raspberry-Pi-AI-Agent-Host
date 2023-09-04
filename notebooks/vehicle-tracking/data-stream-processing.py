@@ -1,4 +1,3 @@
-import subprocess
 import psycopg2
 import serial
 import time
@@ -18,8 +17,8 @@ with conn:
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS gps_data (latitude DOUBLE, longitude DOUBLE, altitude DOUBLE, speed DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
 
-subprocess.run(['sudo', 'wvdial', 'Defaults'])
 
+# Start GPS connection.
 
 ser = serial.Serial('/dev/ttyS0', 115200)
 ser.flushInput()
@@ -37,7 +36,8 @@ def get_gps_position():
     rec_null = True
     answer = ''
     print('Start GPS session...')
-    send_at('AT+CGPS=1,1', 'OK', 1)
+    send_at('ATE1', 'OK', 1)  # Enable AT command echo
+    send_at('AT+CGPS=1,1', 'OK', 1)  # Enable GPS
     time.sleep(2)
     
     while True:
