@@ -19,7 +19,7 @@ conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="quantiota.com",
+    host="yourhost.freeddns.org",
     port="8812"
 )
 
