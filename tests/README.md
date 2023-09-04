@@ -114,6 +114,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 Firstly, you will want to create an '**.env**' file in the docker folder with the following variables:
 
 ```
+# sudo nano .env
 
 # VSCode
 PASSWORD=yourpassword
@@ -129,7 +130,7 @@ QDB_PG_PASSWORD=quest
 and to define your domain name in the '**nginx.env**' file:
 
 ```
-    # nginx/nginx.env
+    # sudo nano nginx/nginx.env
 
     DOMAIN=yourdomain
 ```
