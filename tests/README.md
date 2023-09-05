@@ -183,7 +183,7 @@ By taking the time to customize your Dockerfile, you ensure that your applicatio
 
 ### 6 Set up device mappings
 
-Before initiating your services with Docker Compose, it's crucial to set up [device mappings](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/weather-station), especially if any of your services require direct access to hardware devices on the host machine.
+Before initiating your services with Docker Compose, it's crucial to set up device mappings  ([I2C](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/weather-station), [UART](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/docs/vehicle-tracking)) especially if any of your services require direct access to hardware devices on the host machine.
 
 In our docker compose configuration
 ```
