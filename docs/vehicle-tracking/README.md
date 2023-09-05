@@ -1,4 +1,4 @@
-## BME680 Sensor Setup with Python
+## SIM7600G-H 4G HAT Setup with Python
 
 The SIM7600G-H is a compact 4G HAT module designed for Raspberry Pi. It offers high-speed cellular connectivity and GPS capabilities, making it ideal for IoT and tracking applications.
 
