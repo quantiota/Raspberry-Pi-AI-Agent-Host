@@ -1,4 +1,4 @@
-## SIM7600E-H 4G HAT for Raspberry Pi (LTE Cat-4)
+## SIM7600G-H 4G HAT for Raspberry Pi (LTE Cat-4)
 
 This is a 4G CAT-4/3G/2G network HAT based on the SIMcom SIM7600E-H for the Raspberry Pi which accepts a 1.8V/3V sim card and supports a range of LTE Cat-4 network bands, including phone calls via AT commands and SMS functionality!
 
