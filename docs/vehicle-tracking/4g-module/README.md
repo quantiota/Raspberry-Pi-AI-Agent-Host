@@ -26,3 +26,5 @@ A MicroSD card slot is included on the board for storing data such as messages a
 - Autobauding baudrate: 9600bps ~ 115200bps
 - Control via AT commands (3GPP TS 27.007, 27.005, and V.25TER command set)
 - Supports SIM application toolkit: SAT Class 3, GSM 11.14 Release 99, USAT
+
+
