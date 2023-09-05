@@ -85,7 +85,7 @@ The AI Agent Host-Based GPS Tracker offers numerous benefits and advantages comp
 
 - **Security**: Operating within your own environment, the tracker reduces the risk of security breaches associated with external servers. You can implement your own security measures to protect your data effectively.
 
-- **Offline Functionality**: Our tracker can continue functioning even when there's no internet connectivity. It can store data locally and sync it when the connection is restored, ensuring seamless tracking under various conditions.
+- **Offline Functionality**: The GPS tracker can continue functioning even when there's no internet connectivity. It can store data locally and sync it when the connection is restored, ensuring seamless tracking under various conditions.
 
 - **Custom Alerts and Triggers**: Set up personalized alerts and triggers based on your criteria. This high level of customization enables you to receive notifications when specific events occur.
 
