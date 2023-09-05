@@ -65,7 +65,7 @@ sudo minicom -D /dev/ttyS0
 Setting Up the SIM:
 
 
-``
+```
 
 AT+CPIN?                # Verify if the SIM card PIN is enabled
  +CPIN: SIM PIN
@@ -78,5 +78,5 @@ AT+CLCK="SC",0,"<PIN>"  # Disable the PIN using your default PIN code, e.g., AT+
 AT+CPIN?                #verify:
  +CPIN: READY
 
-``
+```
 
