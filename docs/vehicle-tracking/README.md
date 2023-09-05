@@ -74,6 +74,17 @@ AT+CLCK="SC",0,"<PIN>"  # Disable the PIN using your default PIN code, e.g., AT+
 
 AT+CPIN?                #verify:
  +CPIN: READY
- 
+
 ```
+
+
+3. Serial Port Configuration
+
+So, for your Docker Compose configuration:
+
+devices:
+  - "/dev/tty0:/dev/tty0"
+
+
+Remember, the important part is identifying which port your 4g Module is connected to and then configuring your software or Docker container to use that specific port.
 
