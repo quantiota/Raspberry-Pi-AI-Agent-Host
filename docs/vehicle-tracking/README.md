@@ -37,8 +37,6 @@ sudo shutdown -r now
 
 ## Hardware Connection
 
-## Hardware Connection
-
 1. Begin by connecting the SIM7600G-H HAT to your Raspberry Pi using the GPIO interface. 
 
 2. (Optional) To ensure proper device connectivity, you can use minicom. If not installed, you can install it using the following command:
