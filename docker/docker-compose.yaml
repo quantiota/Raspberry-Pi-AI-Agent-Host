@@ -10,7 +10,6 @@ services:
     volumes:
       # volume used to access the `notebooks` folder
       - ../notebooks:/home/coder/project
-      - ./vscode/4g-module/wvdial.conf:/etc/wvdial.conf
 
     environment:
       - PASSWORD=yourpassword
