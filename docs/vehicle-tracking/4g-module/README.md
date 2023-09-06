@@ -56,7 +56,6 @@ The script includes error checks to ensure that each step completes successfully
 
 To use this script, you should execute it with root privileges. You can run it using the following command (assuming the script is saved in a file named **gprs-conf.sh**):
 
-
 ``````
 sudo su
 cat ./gprs-conf.sh | sudo bash
@@ -76,37 +75,37 @@ This will display information about the status of the service, including whether
 Start the GPRS Service:
 If the GPRS service is not already running, you can start it using the following command:
 
-
+``````
 sudo systemctl start gprs.service
-
+``````
 Stop the GPRS Service:
 To stop the GPRS service, you can use the following command:
 
-
+``````
 sudo systemctl stop gprs.service
-
+``````
 Enable the GPRS Service at Boot:
 If you want the GPRS service to start automatically when the system boots, you can enable it with the following command:
 
-
+``````
 sudo systemctl enable gprs.service
-
+``````
 This ensures that the service is started during system startup.
 
 Disable the GPRS Service at Boot:
 If you no longer want the GPRS service to start automatically at boot, you can disable it with the following command:
 
-
+``````
 sudo systemctl disable gprs.service
-
+``````
 
 Check IP Address and Test Connectivity:
 After the GPRS service is running, you can check if you have obtained an IP address and test internet connectivity. You can do this using the ifconfig command to check if the ppp0 interface has an IP address, and then use the ping command to test connectivity to a website:
 
-
+``````
 ifconfig ppp0
 sudo ping -I ppp0 www.example.com
-
+``````
 Replace www.example.com with an actual website URL.
 
 Please note that the behavior of the GPRS connection may vary based on your specific cellular modem and network setup. The provided script sets up a PPP connection, and if everything goes smoothly, you should be able to access the internet through the ppp0 interface. If you encounter any issues, it's a good idea to check the logs and consult the documentation for your cellular modem to troubleshoot further.
