@@ -68,9 +68,9 @@ After running the script, the GPRS internet connection should be automatically s
 Check Status of GPRS Service:
 You can check the status of the GPRS service to see if it's active and running as expected. Open a terminal and use the following command:
 
-``
+``````
 systemctl status gprs.service
-``
+``````
 This will display information about the status of the service, including whether it's active and any recent logs.
 
 Start the GPRS Service:
