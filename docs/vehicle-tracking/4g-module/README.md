@@ -64,7 +64,7 @@ cat ./gprs-conf.sh | sudo bash
 
 After running the script, the GPRS internet connection should be automatically set up and initiated as a systemd service. Here's how you can check and manage the connection:
 
-Check Status of GPRS Service:
+**Check Status of GPRS Service**:
 You can check the status of the GPRS service to see if it's active and running as expected. Open a terminal and use the following command:
 
 ``````
@@ -72,19 +72,19 @@ systemctl status gprs.service
 ``````
 This will display information about the status of the service, including whether it's active and any recent logs.
 
-Start the GPRS Service:
+**Start the GPRS Service**:
 If the GPRS service is not already running, you can start it using the following command:
 
 ``````
 sudo systemctl start gprs.service
 ``````
-Stop the GPRS Service:
+**Stop the GPRS Service**:
 To stop the GPRS service, you can use the following command:
 
 ``````
 sudo systemctl stop gprs.service
 ``````
-Enable the GPRS Service at Boot:
+**Enable the GPRS Service at Boot**:
 If you want the GPRS service to start automatically when the system boots, you can enable it with the following command:
 
 ``````
@@ -92,14 +92,14 @@ sudo systemctl enable gprs.service
 ``````
 This ensures that the service is started during system startup.
 
-Disable the GPRS Service at Boot:
+**Disable the GPRS Service at Boot**:
 If you no longer want the GPRS service to start automatically at boot, you can disable it with the following command:
 
 ``````
 sudo systemctl disable gprs.service
 ``````
 
-Check IP Address and Test Connectivity:
+**Check IP Address and Test Connectivity**:
 After the GPRS service is running, you can check if you have obtained an IP address and test internet connectivity. You can do this using the ifconfig command to check if the ppp0 interface has an IP address, and then use the ping command to test connectivity to a website:
 
 ``````
