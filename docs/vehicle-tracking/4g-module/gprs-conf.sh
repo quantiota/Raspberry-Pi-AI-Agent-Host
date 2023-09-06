@@ -27,7 +27,7 @@ fi
 printf "${white}writing peer configuration..."
 (cat << EOF | tee /etc/ppp/peers/gprs
 user ""
-connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs"
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs -T apn"
 /dev/ttyS0
 115200
 nocrtscts
