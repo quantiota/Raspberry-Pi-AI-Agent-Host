@@ -28,3 +28,38 @@ A MicroSD card slot is included on the board for storing data such as messages a
 - Supports SIM application toolkit: SAT Class 3, GSM 11.14 Release 99, USAT
 
 
+### GPRS
+
+The script gprs.conf is a bash script that automates the setup of a GPRS internet connection using the PPP (Point-to-Point Protocol) for cellular communication. The script performs the following tasks:
+
+Checks if **pppd** (PPP daemon) is installed. If not, it installs **ppp**.
+Writes a configuration file named **gprs** under **/etc/ppp/peers** for the PPP connection.
+Creates a systemd service named **gprs.service** for managing the PPP connection.
+Creates an IP-up script named **addroute** under **/etc/ppp/ip-up.d** to add a default route via **ppp0**.
+
+
+Here's a brief breakdown of what each part of the script does:
+
+- **Installation Check**:
+Checks if **pppd** is already installed. If not, it installs it.
+
+- **Peer Configuration**:
+Writes the configuration settings for the PPP connection into the **gprs** file under **/etc/ppp/peers**. This file defines various connection parameters such as the serial port, connection speed, and authentication.
+
+- **Systemd Service**:
+Creates a systemd service named **gprs.service** under **/etc/systemd/system**. This service is responsible for starting the PPP connection using the configuration defined earlier.
+
+- **IP-Up Script**:
+Creates an IP-up script named **addroute** under **/etc/ppp/ip-up.d**. This script runs after the PPP connection is established and adds a default route via the **ppp0** interface.
+
+The script includes error checks to ensure that each step completes successfully. It uses colored output to indicate the status of each task, such as whether it's installing packages, creating files, or setting permissions.
+
+To use this script, you should execute it with root privileges. You can run it using the following command (assuming the script is saved in a file named **gprs-conf.sh**):
+
+
+``````
+sudo su
+cat ./gprs-conf.sh | sudo bash
+
+``````
+
