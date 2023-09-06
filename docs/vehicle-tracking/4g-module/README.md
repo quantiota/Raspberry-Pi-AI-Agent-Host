@@ -28,6 +28,56 @@ A MicroSD card slot is included on the board for storing data such as messages a
 - Supports SIM application toolkit: SAT Class 3, GSM 11.14 Release 99, USAT
 
 
+### GPS
+
+Before you begin, ensure you have the following:
+
+- **GPS Module**: Make sure your GPS module is connected correctly to your computer or embedded system.
+
+- **Minicom**: Ensure that Minicom is installed on your system. You can usually install it using your system's package manager.
+
+1. **Open Minicom**: Open your terminal and start Minicom with the following command, replacing **/dev/ttyS0** with your GPS module's serial port:
+
+```
+minicom -D /dev/ttyUSB0
+
+```
+
+2. Configure Serial Port: In Minicom, press **Ctrl+A**, then **O** to access the configuration menu. Configure the serial port settings:
+
+**Serial Device**: /dev/ttyUSB0 (or your specific serial port)
+**Bps/Par/Bits**: 9600 8N1 (baud rate, data bits, parity, stop bits)
+Press **Enter** to save your settings.
+
+
+3. **AT Command Mode**: Type **AT** and press **Enter** to enter AT command mode. The GPS module should respond with **OK**, indicating you are in AT command mode.
+
+
+4. **Open GPS**: To activate the GPS module, enter the command:
+
+```
+AT+CGPS=1
+
+```
+
+5. **Retrieve GPS Information**: To obtain GPS information, enter:
+
+```
+AT+CGPSINFO
+
+```
+The GPS module will respond with details such as latitude, longitude, altitude, and more.
+
+6. **Close GPS**: After retrieving the desired information, you can close the GPS module to conserve power:
+
+```
+AT+CGPS=0
+```
+7. **Exit Minicom**: To exit Minicom, press Ctrl+A, then X. Confirm that you want to exit.
+
+
+
+
 ### GPRS
 
 The script gprs.conf is a bash script that automates the setup of a GPRS internet connection using the PPP (Point-to-Point Protocol) for cellular communication. The script performs the following tasks:
