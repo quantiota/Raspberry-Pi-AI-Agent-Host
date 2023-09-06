@@ -62,6 +62,9 @@ cat ./gprs-conf.sh | sudo bash
 
 ``````
 
+Please make sure to review the script and ensure that it matches your system's configuration and requirements before running it. Remember to replace <**apn**> with the actual provider apn.
+
+
 After running the script, the GPRS internet connection should be automatically set up and initiated as a systemd service. Here's how you can check and manage the connection:
 
 **Check Status of GPRS Service**:
