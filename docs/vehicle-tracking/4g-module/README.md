@@ -42,7 +42,7 @@ Before you begin, ensure you have the following:
 1. Configure Serial Port: In Minicom, press **Ctrl+A**, then **O** to access the configuration menu. Configure the serial port settings:
 
 **Serial Device**: /dev/ttyS0 (or your specific serial port)
-**Bps/Par/Bits**: 9600 8N1 (baud rate, data bits, parity, stop bits)
+**Bps/Par/Bits**: 115200 8N1 (baud rate, data bits, parity, stop bits)
 Press **Enter** to save your settings.
 
 
