@@ -37,12 +37,36 @@ Before you begin, ensure you have the following:
 
 - **GPS Module**: Make sure your GPS module is connected correctly to your computer or embedded system.
 
-- **Minicom**: Ensure that Minicom is installed on your system. You can usually install it using your system's package manager.
+- **Minicom**: Ensure that Minicom is installed and configured on your system. You can usually install it using the command.
+
+```
+sudo apt-get install minicom -y
+```
+
+And configure it with 
+
+```
+sudo minicom -s
+```
+
++-----[configuration]------+
+| Filenames and paths      |
+| File transfer protocols  |
+| Serial port setup        |
+| Modem and dialing        |
+| Screen and keyboard      |
+| Save setup as dfl        |
+| Save setup as..          |
+| Exit                     |
+| Exit from Minicom        |
++--------------------------+
+
+
 
 1. **Open Minicom**: Open your terminal and start Minicom with the following command, replacing **/dev/ttyS0** with your GPS module's serial port:
 
 ```
-minicom -D /dev/ttyUSB0
+minicom -D /dev/ttyS0
 
 ```
 
