@@ -48,7 +48,7 @@ And configure it with
 ```
 sudo minicom -s
 ```
-
+``````
 +-----[configuration]------+
 | Filenames and paths      |
 | File transfer protocols  |
@@ -60,7 +60,7 @@ sudo minicom -s
 | Exit                     |
 | Exit from Minicom        |
 +--------------------------+
-
+``````
 
 
 1. **Open Minicom**: Open your terminal and start Minicom with the following command, replacing **/dev/ttyS0** with your GPS module's serial port:
