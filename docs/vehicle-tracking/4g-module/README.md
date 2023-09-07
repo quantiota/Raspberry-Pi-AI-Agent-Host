@@ -39,17 +39,9 @@ Before you begin, ensure you have the following:
 
 - **Minicom**: Ensure that Minicom is installed on your system. You can usually install it using your system's package manager.
 
+1. Configure Serial Port: In Minicom, press **Ctrl+A**, then **O** to access the configuration menu. Configure the serial port settings:
 
-1. **Open Minicom**: Open your terminal and start Minicom with the following command, replacing **/dev/ttyS0** with your GPS module's serial port:
-
-```
-minicom -D /dev/ttyS0
-
-```
-
-2. Configure Serial Port: In Minicom, press **Ctrl+A**, then **O** to access the configuration menu. Configure the serial port settings:
-
-**Serial Device**: /dev/ttyUSB0 (or your specific serial port)
+**Serial Device**: /dev/ttyS0 (or your specific serial port)
 **Bps/Par/Bits**: 9600 8N1 (baud rate, data bits, parity, stop bits)
 Press **Enter** to save your settings.
 
@@ -68,6 +60,12 @@ Press **Enter** to save your settings.
 +--------------------------+
 ``````
 
+2. **Open Minicom**: Open your terminal and start Minicom with the following command, replacing **/dev/ttyS0** with your GPS module's serial port:
+
+```
+minicom -D /dev/ttyS0
+
+```
 
 3. **AT Command Mode**: Type **AT** and press **Enter** to enter AT command mode. The GPS module should respond with **OK**, indicating you are in AT command mode.
 
