@@ -4,7 +4,8 @@ Combined with the Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi, the EG25/EC25 
 
 ### Hardware Prerequisites
 
-- Raspberry Pi.
+- Raspberry Pi 4B 8GB
+- Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi
 - Quectel EG25/EC25 Mini PCIe 4G/LTE Module
 
 
