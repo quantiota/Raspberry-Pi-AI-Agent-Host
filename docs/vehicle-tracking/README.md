@@ -1,11 +1,11 @@
-## SIM7600G-H 4G HAT Setup with Python
+## Quectel EG25/EC25 Mini PCIe 4G/LTE Module HAT Setup with Python
 
-The SIM7600G-H is a compact 4G HAT module designed for Raspberry Pi. It offers high-speed cellular connectivity and GPS capabilities, making it ideal for IoT and tracking applications.
+Combined with the Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi, the EG25/EC25 Mini PCIe 4G/LTE Module offers high-speed cellular connectivity and GPS capabilities, making it ideal for IoT and tracking applications.
 
 ### Hardware Prerequisites
 
 - Raspberry Pi.
-- SIM7600G-H HAT
+- Quectel EG25/EC25 Mini PCIe 4G/LTE Module
 
 
 ## Software Setup
@@ -37,7 +37,7 @@ sudo shutdown -r now
 
 ## Hardware Connection
 
-1. Begin by connecting the SIM7600G-H HAT to your Raspberry Pi using the GPIO interface with the default jumper setting. 
+1. Begin by connecting the Quectel EG25/EC25 Mini PCIe 4G/LTE Module HAT to your Raspberry Pi using the GPIO interface with the default jumper setting. 
 
 2. (Optional) To ensure proper device connectivity, you can use minicom. If not installed, you can install it using the following command:
 
