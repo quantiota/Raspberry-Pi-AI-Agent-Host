@@ -3,7 +3,13 @@
 #some-weatherstation-package==x.y.z   <- Comment or uncomment based on the application
 bme680==1.1.1   
 psycopg2-binary==2.9.7
+
+
 # some-healthcare-package==x.y.z   <- Comment or uncomment based on the application
+
 # some-GPStracker-package==x.y.z   <- Comment or uncomment based on the application
 openrouteservice==2.3.3
 pyserial==3.5
+
+# some-MarketData-package==x.y.z   <- Comment or uncomment based on the application
+ websocket-client==1.6.3
