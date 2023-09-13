@@ -19,7 +19,7 @@ host="yourdomain.tld",
 port="8812"
 ```
 
-Remember to replace **<yourdomain.tld>** with the actual domain name that points to the IP address of the Docker host where your Raspberry Pi is running.
+Remember to replace **<yourdomain.tld>** with the actual domain name that points to the IP address of the Fixed IP SIM Card where your Raspberry Pi is running.
 
 ### GPS Tracker Data query
 
