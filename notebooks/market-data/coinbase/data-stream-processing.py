@@ -8,7 +8,7 @@ ws.send(
     json.dumps(
         {
             "type": "subscribe",
-            "product_ids": ["BTC-USD"],
+            "product_ids": ["BTC-USD", "ETH-USD"],
             "channels": ["matches"],
         }
     )
