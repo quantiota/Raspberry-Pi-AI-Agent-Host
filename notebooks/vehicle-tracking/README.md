@@ -1,4 +1,4 @@
-## SIM7600G-H 4G HAT GPS Tracker
+##  Quectel EG25/EC25 Mini PCIe 4G/LTE  GPS Tracker
 
 ### Overview
 
@@ -15,11 +15,11 @@ The script is pre-configured to connect to a QuestDB instance using the followin
 dbname="qdb",
 user="admin",
 password="quest",
-host="yourhost.freeddns.org",
+host="yourdomain.tld",
 port="8812"
 ```
 
-Remember to replace **<yourhost.freeddns.org>** with the actual DDNS domain name that points to the IP address of the Docker host where your Raspberry Pi is running.
+Remember to replace **<yourdomain.tld>** with the actual DDNS domain name that points to the IP address of the Docker host where your Raspberry Pi is running.
 
 ### GPS Tracker Data query
 
