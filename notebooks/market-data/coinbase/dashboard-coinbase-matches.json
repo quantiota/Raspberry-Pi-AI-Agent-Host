@@ -33,7 +33,7 @@
         "type": "postgres",
         "uid": "2Bi8EToVz"
       },
-      "description": "Coinbase",
+      "description": "Coinbase live data for ETH and BTC",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -146,7 +146,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS ETH\r\nFROM trades\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
+          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS ETH\r\nFROM coinbase_matches\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -175,7 +175,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS BTC\r\nFROM trades\r\nWHERE symbol = 'BTC-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
+          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS BTC\r\nFROM coinbase_matches\r\nWHERE symbol = 'BTC-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
           "refId": "B",
           "sql": {
             "columns": [
@@ -320,7 +320,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS ETH\r\nFROM trades\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
+          "rawSql": "SELECT \r\n    timestamp,\r\n    first(price) AS ETH\r\nFROM conbase_matches\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -349,7 +349,7 @@
           "format": "table",
           "hide": false,
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    timestamp,\r\n    sum(size) AS VOLUME\r\nFROM trades\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
+          "rawSql": "SELECT \r\n    timestamp,\r\n    sum(size) AS VOLUME\r\nFROM coinbase_matches\r\nWHERE symbol = 'ETH-USD'  AND timestamp > dateadd('d', -1, now())\r\nSAMPLE BY 1s ALIGN TO CALENDAR;  ",
           "refId": "B",
           "sql": {
             "columns": [
@@ -390,7 +390,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Coinbase ETH BTC",
+  "title": "Coinbase matches ETH BTC",
   "uid": "MNhO0-aVk",
   "version": 58,
   "weekStart": ""
