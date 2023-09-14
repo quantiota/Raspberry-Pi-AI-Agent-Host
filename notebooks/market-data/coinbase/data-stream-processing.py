@@ -19,7 +19,7 @@ conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="docker_host_ip",
+    host="docker_host_ip_address",
     port="8812"
 )
 
@@ -27,12 +27,16 @@ conn = psycopg2.connect(
 with conn:
     cursor = conn.cursor()
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS coinbase_data (
+    CREATE TABLE IF NOT EXISTS coinbase_matches (
         symbol STRING, 
         id DOUBLE, 
         price DOUBLE,        
         size DOUBLE, 
         side STRING,
+        type STRING,  
+        maker_order_id STRING, 
+        taker_order_id STRING, 
+        sequence DOUBLE,
         timestamp TIMESTAMP 
     ) TIMESTAMP(timestamp) PARTITION BY DAY;
     """)
@@ -44,10 +48,10 @@ while True:
         with conn:
             cursor = conn.cursor()
             insert_query = """
-            INSERT INTO coinbase_data (symbol, id, price, size, side, timestamp)
-            VALUES (%s, %s, %s, %s, %s, %s);
-            """
-            cursor.execute(insert_query, (data['product_id'], (data['trade_id']), float(data['price']), float(data['size']), data['side'], data['time']))
+                INSERT INTO coinbase_matches (symbol, id, price, size, side, type, maker_order_id, taker_order_id, sequence, timestamp)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+                """
+            cursor.execute(insert_query, (data['product_id'], data['trade_id'], float(data['price']), float(data['size']), data['side'], data['type'], data['maker_order_id'], data['taker_order_id'], data['sequence'], data['time']))
             conn.commit()
 
     except WebSocketConnectionClosedException:
