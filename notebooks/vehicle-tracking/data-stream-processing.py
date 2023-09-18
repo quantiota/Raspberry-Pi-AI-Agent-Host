@@ -1,105 +1,75 @@
 import psycopg2
+from time import sleep
 import serial
-import time
 
-
-# Initialize the GPS connection
-
-
-# Connect to the QuestDB database
+# Database Configuration
 conn = psycopg2.connect(
     dbname="qdb",
     user="admin",
     password="quest",
-    host="yourhost.freeddns.org",
+    host="docker_host_ip_address",
     port="8812"
 )
 
-# Create the necessary table if it doesn't exist
+# Create table if it doesn't exist
 with conn:
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS gps_data (latitude DOUBLE, longitude DOUBLE, altitude DOUBLE, speed DOUBLE, timestamp TIMESTAMP) TIMESTAMP(timestamp) PARTITION BY DAY;")
 
+# Serial Configuration
+portwrite = "/dev/ttyUSB2"
+port = "/dev/ttyUSB1"
 
-# Start GPS connection.
+def parseGPS(data, speed=None):
+    if data[0:6] == "$GPGGA":
+        sdata = data.split(",")
+        time = sdata[1]
+        lat = sdata[2]
+        dirLat = sdata[3]
+        lon = sdata[4]
+        dirLon = sdata[5]
+        altitude = sdata[9]
 
-ser = serial.Serial('/dev/ttyS0', 115200)
-ser.flushInput()
+        latitude = float(lat[:2]) + float(lat[2:])/60
+        if dirLat == 'S':
+            latitude = -latitude
 
-def send_at(command, back, timeout):
-    rec_buff = ''
-    ser.write((command + '\r\n').encode())
-    time.sleep(timeout)
-    if ser.inWaiting():
-        time.sleep(0.01)
-        rec_buff = ser.read(ser.inWaiting()).decode()
-    return rec_buff
+        longitude = float(lon[:3]) + float(lon[3:])/60
+        if dirLon == 'W':
+            longitude = -longitude
 
+        altitude = float(altitude)
 
-def get_gps_position():
-    rec_null = True
-    answer = ''
-    print('Start GPS session...')
-    send_at('AT+CGPS=1,1', 'OK', 1)  # Enable GPS
-    time.sleep(5)  # Add a delay
-    
-    while True:
-        answer = send_at('AT+CGPSINFO', '+CGPSINFO: ', 1)
-        if '+CGPSINFO:' in answer:
-            gps_info_str = answer.split(":")[1].strip()
-            gps_info_list = gps_info_str.split(",")
+        with conn:
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO gps_data (latitude, longitude, altitude, speed, timestamp) VALUES (%s, %s, %s, %s, NOW());",
+                           (latitude, longitude, altitude, speed))
 
-            latitude = gps_info_list[0]
-            latitude_direction = gps_info_list[1]
-            longitude = gps_info_list[2]
-            longitude_direction = gps_info_list[3]
-          
-            try:
-                latitude_degree = float(latitude[:2])
-                latitude_minute = float(latitude[2:])
-                latitude = latitude_degree + latitude_minute / 60.0
+    elif data[0:6] == "$GPRMC":
+        sdata = data.split(",")
+        speed = float(sdata[7]) * 1.852  # Convert knots to km/h
 
-                longitude_degree = float(longitude[:3])
-                longitude_minute = float(longitude[3:])
-                longitude = longitude_degree + longitude_minute / 60.0
+    return speed
 
-                date = gps_info_list[4]
-                time_utc = float(gps_info_list[5])
-                altitude = float(gps_info_list[6])
-                speed = float(gps_info_list[7])
-            except ValueError:
-                print("Error converting data to float, skipping data point")
-                continue  # Skip this data point and move to the next iteration
-
-            
-            print(f"Latitude: {latitude} {latitude_direction}")
-            print(f"Longitude: {longitude} {longitude_direction}")
-            print(f"Date: {date}")
-            print(f"Time: {time_utc}")
-            print(f"Altitude: {altitude} m")
-            print(f"Speed: {speed} knots")
-
-
-
-
-            # Insert data into the QuestDB table
-            with conn:
-                cursor = conn.cursor()
-                cursor.execute("INSERT INTO gps_data (latitude, longitude, altitude, speed, timestamp) VALUES (%s, %s, %s, %s, NOW());",
-                               (latitude, longitude, altitude, speed))
-
-
-        else:
-            print('GPS is not ready')
-
-        time.sleep(1.5)
-
+print("Connecting Port..")
 try:
-    get_gps_position()
-except Exception as e:
-    print(f"An error occurred: {e}")
-finally:
-    if ser is not None:
-        ser.close()
-    if conn is not None:
-        conn.close()
+    serw = serial.Serial(portwrite, baudrate=115200, timeout=1, rtscts=True, dsrdtr=True)
+    
+    # Enable GPS
+    serw.write('AT+QGPS=1\r'.encode())
+    response = serw.readline().decode('utf-8')
+    print("Modem Response for AT+QGPS=1:", response.strip())    
+    serw.close()
+    
+except Exception as e: 
+    print("Serial port connection failed.")
+    print(e)
+
+print("Receiving GPS data\n")
+ser = serial.Serial(port, baudrate=115200, timeout=0.5, rtscts=True, dsrdtr=True)
+speed = None
+while True:
+    data = ser.readline().decode('utf-8')
+    print("Raw Data:", data)  
+    speed = parseGPS(data, speed)
+    sleep(1)
