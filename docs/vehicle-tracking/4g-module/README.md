@@ -29,13 +29,14 @@ This guide explains how to set up a cellular connection on your Raspberry Pi usi
 
 ## Prerequisites
 
-- Raspberry Pi with a Quectel modem or similar, which should preferably be in QMI or ECM mode.
+- Raspberry Pi with a Quectel modem or similar, which should preferably be in QMI mode.
 - `libqmi-utils` and `udhcpc` packages installed.
 - APN (Access Point Name) for your cellular network provider.
 
 ## Installation
 
 1. Install the required utilities:
+
    ``
    sudo apt update && sudo apt install libqmi-utils udhcpc
 
