@@ -65,7 +65,7 @@ sudo ip link set wwan0 up
 
 ```
 
-3. Connect to the cellular network using the provided APN USERNAME and PASSWORD:
+3. Connect to the cellular network using the provided APN, USERNAME and PASSWORD:
 
 
 ```
@@ -86,3 +86,45 @@ Test the connection with:
 ```
 ping -I wwan0 www.google.com -c 5
 ```
+
+
+## Reconnection after Reboot
+
+After a system reboot, you'll need to rerun the following to reconnect:
+
+
+```
+
+sudo ip link set wwan0 down
+echo 'Y' | sudo tee /sys/class/net/wwan0/qmi/raw_ip
+sudo ip link set wwan0 up
+sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+sudo udhcpc -q -f -i wwan0
+```
+
+
+## Automate Reconnection
+
+To automatically reconnect on system boot, create a configuration file:
+
+```
+sudo nano /etc/network/interfaces.d/wwan0
+
+```
+
+Add the following content (replace 'YOUR_APN' with your APN, USERNAME and PASSWORD):
+
+```
+auto wwan0
+iface wwan0 inet manual
+     pre-up ifconfig wwan0 down
+     pre-up echo Y > /sys/class/net/wwan0/qmi/raw_ip
+     pre-up for _ in $(seq 1 10); do /usr/bin/test -c /dev/cdc-wdm0 && break; /bin/sleep 1; done
+     pre-up for _ in $(seq 1 10); do /usr/bin/qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength && break; /bin/sleep 1; done
+     pre-up sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+     pre-up udhcpc -i wwan0
+     post-down /usr/bin/qmi-network /dev/cdc-wdm0 stop
+
+```
+
+Now, after rebooting, wwan0 should come up automatically without manual intervention.
