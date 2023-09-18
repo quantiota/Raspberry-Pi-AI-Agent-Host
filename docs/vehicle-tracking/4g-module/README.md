@@ -1,6 +1,5 @@
 # Sixfab 4G/LTE Cellular Modem Kit for Raspberry Pi
 
-
 ### Overview
 
 The Sixfab Base HAT is specifically designed for Raspberry Pi, serving as a pre-certified carrier board to ensure seamless integration. To further simplify the process, the Sixfab CORE middleware automatically installs and configures all necessary settings on both the OS and the LTE modem. This feature-rich middleware also provides a remote terminal, making configuration and support straightforward. For those diving into IoT projects, the kit comes with an IoT SIM, offering options for either global or regional coverage. 
@@ -37,7 +36,8 @@ This guide explains how to set up a cellular connection on your Raspberry Pi usi
 
 1. Install the required utilities:
 
-   ``
+   ```
    sudo apt update && sudo apt install libqmi-utils udhcpc
+   ```
+   
 
-``
