@@ -1,4 +1,4 @@
-## Sixfab 4G/LTE Cellular Modem Kit for Raspberry Pi
+# Sixfab 4G/LTE Cellular Modem Kit for Raspberry Pi
 
 
 ### Overview
@@ -23,3 +23,20 @@ The Sixfab Base HAT is specifically designed for Raspberry Pi, serving as a pre-
 - **All-in-One Kit**: With antennas, cables, headers, and spacers, it’s ready to connect right out of the box!
 
 
+# # QMI Mode Cellular Connection Setup for Raspberry Pi (as `wwan0`)
+
+This guide explains how to set up a cellular connection on your Raspberry Pi using QMI mode, which exposes a `wwan0` interface.
+
+## Prerequisites
+
+- Raspberry Pi with a Quectel modem or similar, which should preferably be in QMI or ECM mode.
+- `libqmi-utils` and `udhcpc` packages installed.
+- APN (Access Point Name) for your cellular network provider.
+
+## Installation
+
+1. Install the required utilities:
+   ``
+   sudo apt update && sudo apt install libqmi-utils udhcpc
+
+``
