@@ -4,6 +4,23 @@ Combined with the Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi, the EG25/EC25 
 
 ## Hardware Prerequisites
 
+Before initiating the QMI, it's essential to verify that the module is appropriately configured. To check and adjust the settings, you can use minicom, a terminal-based serial communication program.
+
+First, connect to the module by executing:
+
+```
+minicom -D /dev/ttyUSB2
+
+```
+Once connected with minicom, run the command AT+QCFG="usbnet". Ensure that the returned value is 0. If it's not, you need to configure it by sending AT+QCFG="usbnet",0.
+
+After making this change, it's crucial to reboot the module. Wait for 10 seconds, then use the command AT+CFUN=1,1 to perform the reboot.
+
+Once done, you can exit minicom by pressing Ctrl + A followed by X and then selecting 'Exit from Minicom'.
+
+
+## Hardware Prerequisites
+
 - Raspberry Pi 4B 8GB
 - Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi
 - Quectel EG25/EC25 Mini PCIe 4G/LTE Module
