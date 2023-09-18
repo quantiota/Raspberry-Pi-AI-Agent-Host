@@ -10,7 +10,6 @@ First, connect to the module by executing:
 
 ```
 minicom -D /dev/ttyUSB2
-
 ```
 Once connected with minicom, run the command AT+QCFG="usbnet". Ensure that the returned value is 0. If it's not, you need to configure it by sending AT+QCFG="usbnet",0.
 
