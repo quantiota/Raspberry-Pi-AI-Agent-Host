@@ -1,92 +1,117 @@
-## Quectel EG25/EC25 Mini PCIe 4G/LTE Module HAT Setup with Python
+# Quectel EG25/EC25 Mini PCIe 4G/LTE Module HAT Setup with Python
 
 Combined with the Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi, the EG25/EC25 Mini PCIe 4G/LTE Module offers high-speed cellular connectivity and GPS capabilities, making it ideal for IoT and tracking applications.
 
-### Hardware Prerequisites
+## Hardware Prerequisites
 
 - Raspberry Pi 4B 8GB
 - Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi
 - Quectel EG25/EC25 Mini PCIe 4G/LTE Module
 
 
-## Software Setup
+# QMI Mode Cellular Connection Setup for Raspberry Pi (as `wwan0`)
 
-1. UART: enables support for UART based hardware:
+This guide explains how to set up a cellular connection on your Raspberry Pi using QMI mode, which exposes a `wwan0` interface.
 
-With root:dietpi login credentials:
+## Prerequisites
 
-Run dietpi-software from the command line.
+- Raspberry Pi with a Quectel modem or similar, which should preferably be in QMI mode.
+- `libqmi-utils` and `udhcpc` packages installed.
+- APN (Access Point Name) for your cellular network provider.
 
-```
-dietpi-software
-```
-Browse DietPi-Config > Advanced Options > Serial/UART. Choose ttyS0. Finally select OK. DietPi will do all the necessary steps to install and start the software item.
+## Installation
 
+1. Install the required utilities:
 
-```
-   ttyS0 (mini UART) device : [On] 
+   ```
+   sudo apt update && sudo apt install libqmi-utils udhcpc
+   ```
+   
 
-```
+## Configuration
 
-2. Reboot:
-
-```
-sudo shutdown -r now
-
-```
-
-
-## Hardware Connection
-
-1. Begin by connecting the Quectel EG25/EC25 Mini PCIe 4G/LTE Module HAT to your Raspberry Pi using the GPIO interface with the default jumper setting. 
-
-2. (Optional) To ensure proper device connectivity, you can use minicom. If not installed, you can install it using the following command:
-
+1. Verify the modem's operating mode:
 
 ```
-sudo apt install minicom -y
+sudo qmicli -d /dev/cdc-wdm0 --dms-get-operating-mode
+
+```
+- If not in 'online' mode, set it:
+
+```
+sudo qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode='online'
 
 ```
 
-Set up the connection using:
+2. Set the interface to raw_ip mode:
 
 ```
-sudo minicom -s
-
-```
-
-Establish the connection:
-
-
-```
-sudo minicom -D /dev/ttyS0
+sudo ip link set wwan0 down
+echo 'Y' | sudo tee /sys/class/net/wwan0/qmi/raw_ip
+sudo ip link set wwan0 up
 
 ```
 
-Setting Up the SIM:
+3. Connect to the cellular network using the provided APN, USERNAME and PASSWORD:
 
 
 ```
-AT+CPIN?                # Verify if the SIM card PIN is enabled
- +CPIN: SIM PIN
+sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
 
-AT+CLCK="SC",0,"<PIN>"  # Disable the PIN using your default PIN code, e.g., AT+CLCK="SC",0,"1234"
- OK
-
-AT+CPIN?                #verify:
- +CPIN: READY
 
 ```
 
+4. Obtain an IP address and set up routing
 
-3. Serial Port Configuration
+```
+sudo udhcpc -q -f -i wwan0
 
-So, for your Docker Compose configuration:
+```
 
-``````
-devices:
-  - "/dev/tty0:/dev/tty0"
-``````
+Test the connection with:
 
-Remember, the important part is identifying which port your 4g Module is connected to and then configuring your software or Docker container to use that specific port.
+```
+ping -I wwan0 www.google.com -c 5
+```
 
+
+## Reconnection after Reboot
+
+After a system reboot, you'll need to rerun the following to reconnect:
+
+
+```
+
+sudo ip link set wwan0 down
+echo 'Y' | sudo tee /sys/class/net/wwan0/qmi/raw_ip
+sudo ip link set wwan0 up
+sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+sudo udhcpc -q -f -i wwan0
+```
+
+
+## Automate Reconnection
+
+To automatically reconnect on system boot, create a configuration file:
+
+```
+sudo nano /etc/network/interfaces.d/wwan0
+
+```
+
+Add the following content (replace 'YOUR_APN' with your APN, USERNAME and PASSWORD):
+
+```
+auto wwan0
+iface wwan0 inet manual
+     pre-up ifconfig wwan0 down
+     pre-up echo Y > /sys/class/net/wwan0/qmi/raw_ip
+     pre-up for _ in $(seq 1 10); do /usr/bin/test -c /dev/cdc-wdm0 && break; /bin/sleep 1; done
+     pre-up for _ in $(seq 1 10); do /usr/bin/qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength && break; /bin/sleep 1; done
+     pre-up sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+     pre-up udhcpc -i wwan0
+     post-down /usr/bin/qmi-network /dev/cdc-wdm0 stop
+
+```
+
+Now, after rebooting, wwan0 should come up automatically without manual intervention.

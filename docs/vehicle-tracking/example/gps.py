@@ -1,9 +1,8 @@
 # Sixfab - Reading GPS data with Python
 # 2020
-
-
+import serial 
 from time import sleep
-import serial
+
 
 portwrite = "/dev/ttyUSB2"
 port = "/dev/ttyUSB1"
