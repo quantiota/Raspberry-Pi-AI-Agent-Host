@@ -1,0 +1,11 @@
+# sudo nano /etc/network/interfaces.d/wwan0
+
+auto wwan0
+iface wwan0 inet manual
+     pre-up ifconfig wwan0 down
+     pre-up echo Y > /sys/class/net/wwan0/qmi/raw_ip
+     pre-up for _ in $(seq 1 10); do /usr/bin/test -c /dev/cdc-wdm0 && break; /bin/sleep 1; done
+     pre-up for _ in $(seq 1 10); do /usr/bin/qmicli -d /dev/cdc-wdm0 --nas-get-signal-strength && break; /bin/sleep 1; done
+     pre-up sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+     pre-up udhcpc -i wwan0
+     post-down /usr/bin/qmi-network /dev/cdc-wdm0 stop
