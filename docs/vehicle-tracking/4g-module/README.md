@@ -41,3 +41,48 @@ This guide explains how to set up a cellular connection on your Raspberry Pi usi
    ```
    
 
+## Configuration
+
+1. Verify the modem's operating mode:
+
+```
+sudo qmicli -d /dev/cdc-wdm0 --dms-get-operating-mode
+
+```
+- If not in 'online' mode, set it:
+
+```
+sudo qmicli -d /dev/cdc-wdm0 --dms-set-operating-mode='online'
+
+```
+
+2. Set the interface to raw_ip mode:
+
+```
+sudo ip link set wwan0 down
+echo 'Y' | sudo tee /sys/class/net/wwan0/qmi/raw_ip
+sudo ip link set wwan0 up
+
+```
+
+3. Connect to the cellular network using the provided APN USERNAME and PASSWORD:
+
+
+```
+sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='YOUR_APN',username='YOUR_USERNAME',password='YOUR_PASSWORD',ip-type=4" --client-no-release-cid
+
+
+```
+
+4. Obtain an IP address and set up routing
+
+```
+sudo udhcpc -q -f -i wwan0
+
+```
+
+Test the connection with:
+
+```
+ping -I wwan0 www.google.com -c 5
+```
