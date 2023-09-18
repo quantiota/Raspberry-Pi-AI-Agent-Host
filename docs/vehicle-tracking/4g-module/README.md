@@ -1,4 +1,4 @@
-# Sixfab 4G/LTE Cellular Modem Kit for Raspberry Pi with EG25-G Mini PCIe
+# Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi with EG25-G Mini PCIe
 
 ### Overview
 
