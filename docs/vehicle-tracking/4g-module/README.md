@@ -23,7 +23,7 @@ The Sixfab Base HAT is specifically designed for Raspberry Pi, serving as a pre-
 - **All-in-One Kit**: With antennas, cables, headers, and spacers, it’s ready to connect right out of the box!
 
 
-# # QMI Mode Cellular Connection Setup for Raspberry Pi (as `wwan0`)
+# QMI Mode Cellular Connection Setup for Raspberry Pi (as `wwan0`)
 
 This guide explains how to set up a cellular connection on your Raspberry Pi using QMI mode, which exposes a `wwan0` interface.
 
