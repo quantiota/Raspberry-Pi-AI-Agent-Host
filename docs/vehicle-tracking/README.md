@@ -2,7 +2,7 @@
 
 Combined with the Sixfab 3G – 4G/LTE Base HAT for Raspberry Pi, the EG25/EC25 Mini PCIe 4G/LTE Module offers high-speed cellular connectivity and GPS capabilities, making it ideal for IoT and tracking applications.
 
-## Hardware Prerequisites
+## Software Prerequisites
 
 Before initiating the QMI, it's essential to verify that the module is appropriately configured. To check and adjust the settings, you can use minicom, a terminal-based serial communication program.
 
