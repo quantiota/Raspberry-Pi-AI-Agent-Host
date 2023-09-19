@@ -2,7 +2,7 @@
 
 ### Overview
 
-This script is designed to read GPS data from a Sixfab device via serial communication. The script utilizes two serial ports: one for writing commands (`/dev/ttyUSB2`) and the other for reading data (`/dev/ttyUSB1`). The script decodes and parses the GPRMC NMEA sentence from the GPS module to extract and display various GPS data points including latitude, longitude, speed, date, and more.
+This script is designed to read GPS data from a EG25-G Mini PCIe device via serial communication. The script utilizes two serial ports: one for writing commands (`/dev/ttyUSB2`) and the other for reading data (`/dev/ttyUSB1`). The script decodes and parses the GPRMC NMEA sentence from the GPS module to extract and display various GPS data points including latitude, longitude, speed, date, and more.
 
 ### Prerequisites
 
