@@ -24,7 +24,7 @@ The number **123** in the example above is the group ID of the device.
 
 Similar to the i2c, we have for the uart interface:
 
-Find out the group ID (**gid**) of the **/dev/ttyS0** device on the host.
+Find out the group ID (**gid**) of the **/dev/ttyUSB*** device on the host.
 
 ```
 ls -ln /dev/ttyS0
@@ -33,7 +33,7 @@ ls -ln /dev/ttyS0
 This will give you an output like:
 
 ```
-crw-rw---- 1 root dialout 4, 64 Sep  5 17:34 /dev/ttyS0
+crw-rw---- 1 root dialout 4, 64 Sep  5 17:34 /dev/ttyUSB*
 ```
 
 
