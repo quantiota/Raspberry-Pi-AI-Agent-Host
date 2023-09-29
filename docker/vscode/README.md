@@ -27,7 +27,7 @@ Similar to the i2c, we have for the uart interface:
 Find out the group ID (**gid**) of the **/dev/ttyUSB*** device on the host.
 
 ```
-ls -ln /dev/ttyS0
+ls -ln /dev/ttyUSB*
 ```
 
 This will give you an output like:
