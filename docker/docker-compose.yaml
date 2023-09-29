@@ -14,7 +14,7 @@ services:
     environment:
       - PASSWORD=yourpassword
     devices:
-    # I2C and Serial Interfaces for respectively BME680 sensor and SIM7600G-H 4G HAT cellular device.
+    # I2C and Serial Interfaces for respectively BME680 sensor and QUECTEL EG25-G 4G HAT cellular device.
       - "/dev/i2c-1:/dev/i2c-1"
       - "/dev/ttyUSB1:/dev/ttyUSB1"
       - "/dev/ttyUSB2:/dev/ttyUSB2"
