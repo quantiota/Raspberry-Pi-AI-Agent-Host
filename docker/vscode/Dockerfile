@@ -18,7 +18,7 @@ RUN python3 -m pip install -r /tmp/requirements.txt
 RUN groupadd -g 995 i2cgroup
 RUN usermod -aG i2cgroup coder
 
-# Add the coder user to the dialout group for GPS communication with serial port /dev/ttyS0
+# Add the coder user to the dialout group for GPS communication with serial port /dev/ttyUSB*
 RUN usermod -aG dialout coder
 
 # Switch to coder user
