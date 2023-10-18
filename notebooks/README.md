@@ -22,18 +22,22 @@ The available data sources are categorized based on domains:
     - Data from health monitoring devices like wearables capturing heart rate, sleep patterns, etc.
     - Patient data repositories and Electronic Health Records (EHRs).
 
+- **Market Data**:
+    - Live stock prices, commodities data, and forex rates.
+    - Historical trade data and financial indicators for diverse markets.
+    - News streams related to financial markets.
+
+- **Robotics**:
+    - Data from robotic sensors, including position, orientation, and environmental data.
+    - Logs of robot movements, tasks, and interactions.
+
 - **Vehicle Tracking**:
-    - Telematics data from on-board vehicle sensors, recording speed, location, and diagnostics.
+    - Telematics data from on-board vehicle sensors, recording speed, location, and   diagnostics.
     - Traffic and route data for real-time navigation and traffic prediction.
 
 - **Weather Station**:
     - Real-time data feeds from weather sensors like temperature, humidity, pressure, etc.
     - Historical weather data repositories for trend analysis and prediction.
-
-- **Market Data**:
-    - Live stock prices, commodities data, and forex rates.
-    - Historical trade data and financial indicators for diverse markets.
-    - News streams related to financial markets.
 
 - **General Data Streams**:
     - Public datasets from Kaggle or UCI Machine Learning Repository.
