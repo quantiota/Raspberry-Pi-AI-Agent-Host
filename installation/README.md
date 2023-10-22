@@ -231,6 +231,22 @@ You can also run the existing notebooks in the project folder within VSCode.
 
 [GPS Tracker](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/notebooks/vehicle-tracking) 
 
+## References
+
+
+1. Connect to a JupyterHub from Visual Studio Code. [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_connect-to-a-remote-jupyter-server)
+
+2. Create an API Token. [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/howto/rest.html#create-an-api-token)
+
+3. [Visual Studio Code](https://code.visualstudio.com/)
+
+4. [QuestDB - The Fastest Open Source Time Series Database](https://questdb.io/)
+
+5. [Grafana - The open observability platform](https://grafana.com/)
+
+6. [Langchain](https://python.langchain.com)
+
+
 
 ## Appendix
 
@@ -285,18 +301,4 @@ chmod 755 /path/to/directory
 This command will change the permissions of the specified directory to **755**, regardless of the umask or the directory's initial permissions.
 
 
-## References
-
-
-1. Connect to a JupyterHub from Visual Studio Code. [Visual Studio Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_connect-to-a-remote-jupyter-server)
-
-2. Create an API Token. [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/howto/rest.html#create-an-api-token)
-
-3. [Visual Studio Code](https://code.visualstudio.com/)
-
-4. [QuestDB - The Fastest Open Source Time Series Database](https://questdb.io/)
-
-5. [Grafana - The open observability platform](https://grafana.com/)
-
-6. [Langchain](https://python.langchain.com)
 
