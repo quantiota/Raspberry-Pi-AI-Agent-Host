@@ -15,7 +15,7 @@
       }
     ]
   },
-  "description": "GPS Tracker for SIM7600G-H 4G HAT ",
+  "description": "GPS Tracker for Quectel EG25-G 4G HAT ",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -30,7 +30,7 @@
         "uid": "2Bi8EToVz"
       },
       "defaultLayer": "OpenStreetMap",
-      "description": "GPS Tracker for  SIM7600G-H 4G HAT ",
+      "description": "GPS Tracker for  Quectel EG25-G 4G HAT ",
       "gridPos": {
         "h": 19,
         "w": 24,
