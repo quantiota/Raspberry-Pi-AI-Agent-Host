@@ -1,106 +1,104 @@
 import datetime
+import json
+import logging
+import os
+import psycopg2
+import psycopg2.pool
 import threading
 import websocket
-import json
-import psycopg2
-import psycopg2.extras
+from concurrent.futures import ThreadPoolExecutor
+
+# Configuration
+DB_NAME = os.getenv('DB_NAME', 'qdb')
+DB_USER = os.getenv('DB_USER', 'admin')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'quest')
+DB_HOST = os.getenv('DB_HOST', 'docker_host_ip_address')
+DB_PORT = os.getenv('DB_PORT', '8812')
+
+# Logging Configuration
+logging.basicConfig(level=logging.INFO)
+
+# Initialize connection pool
+connection_pool = psycopg2.pool.SimpleConnectionPool(1, 10,
+                                                     dbname=DB_NAME,
+                                                     user=DB_USER,
+                                                     password=DB_PASSWORD,
+                                                     host=DB_HOST,
+                                                     port=DB_PORT)
 
 def create_questdb_table():
-    # Connect to QuestDB (update host, user, password, and database name as necessary)
-    conn = psycopg2.connect(
-        dbname='qdb', 
-        user='admin', 
-        password='quest', 
-        host='docker_host_ip_address', 
-        port='8812'
-    )
-    cur = conn.cursor()
-
-
-    # Create table SQL command
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS binance_trades (
-        symbol STRING,
-        trade_id DOUBLE,
-        price DOUBLE,
-        quantity DOUBLE,
-        buyer_order_id LONG,
-        seller_order_id LONG,
-        is_buyer_market_maker BOOLEAN,
-        trade_time TIMESTAMP   
-    ) TIMESTAMP(trade_time) PARTITION BY DAY;
-    """
-    cur.execute(create_table_sql)
-    conn.commit()
-
-    # Close the connection
-    cur.close()
-    conn.close()
+    """Create a table in QuestDB."""
+    conn = connection_pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            create_table_sql = """
+            CREATE TABLE IF NOT EXISTS binance_trades (
+                symbol STRING,
+                trade_id DOUBLE,
+                price DOUBLE,
+                quantity DOUBLE,
+                buyer_order_id LONG,
+                seller_order_id LONG,
+                is_buyer_market_maker BOOLEAN,
+                timestamp TIMESTAMP
+            ) TIMESTAMP(timestamp) PARTITION BY DAY;
+            """
+            cur.execute(create_table_sql)
+            conn.commit()
+    except Exception as e:
+        logging.error(f"Error creating QuestDB table: {e}")
+    finally:
+        connection_pool.putconn(conn)
 
 def insert_into_questdb(data):
+    """Insert data into QuestDB."""
+    conn = connection_pool.getconn()
     try:
-        # Connect to QuestDB
-        conn = psycopg2.connect(
-            dbname='qdb', 
-            user='admin', 
-            password='quest', 
-            host='docker_host_ip_address', 
-            port='8812'
-        )
-        cur = conn.cursor()
-
-        # SQL Insert statement
-        insert_sql = """
-        INSERT INTO binance_trades (symbol, trade_id, price, quantity, buyer_order_id, 
-                                   seller_order_id, is_buyer_market_maker, trade_time) 
-        VALUES (%s, %s, %s, %s, %s, %s,  %s, %s)
-        """
-        # Convert trade_time from milliseconds to a datetime object
-        trade_time_datetime = datetime.datetime.utcfromtimestamp(int(data['T']) / 1000.0)
-
-
-
-        # Data extraction
-        trade_data = (
-            data['s'],  # symbol
-            data['t'],  # trade_id
-            float(data['p']),  # price
-            float(data['q']),  # quantity
-            data['b'],  # buyer_order_id
-            data['a'],  # seller_order_id
-            data['m'],  # is_buyer_market_maker
-            trade_time_datetime  # trade_time in seconds
-        )
-
-        # Execute SQL statement
-        cur.execute(insert_sql, trade_data)
-        conn.commit()
-
-        # Close the connection
-        cur.close()
-        conn.close()
+        with conn.cursor() as cur:
+            insert_sql = """
+            INSERT INTO binance_trades (symbol, trade_id, price, quantity, buyer_order_id, seller_order_id, is_buyer_market_maker, timestamp)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            trade_time_datetime = datetime.datetime.utcfromtimestamp(int(data['T']) / 1000.0)
+            trade_data = (
+                data['s'],
+                data['t'],
+                float(data['p']),
+                float(data['q']),
+                data['b'],
+                data['a'],
+                data['m'],
+                trade_time_datetime
+            )
+            cur.execute(insert_sql, trade_data)
+            conn.commit()
     except Exception as e:
-        print(f"Error inserting into QuestDB: {e}")
+        logging.error(f"Error inserting into QuestDB: {e}")
+    finally:
+        connection_pool.putconn(conn)
 
 def on_message(ws, message):
-    print("Received Message:")
+    """Handle incoming WebSocket messages."""
+    logging.info("Received Message")
     data = json.loads(message)
-    print(data)
     insert_into_questdb(data)
 
 def on_error(ws, error):
-    print(error)
+    """Handle WebSocket errors."""
+    logging.error(error)
 
 def on_close(ws, close_status_code, close_msg):
-    print("### Closed ###")
-    print("Close status code: ", close_status_code)
-    print("Close message: ", close_msg)
-
+    """Handle WebSocket closure."""
+    logging.info("### Closed ###")
+    logging.info(f"Close status code: {close_status_code}")
+    logging.info(f"Close message: {close_msg}")
 
 def on_open(ws):
-    print("Connection opened")
+    """Handle opening of WebSocket connection."""
+    logging.info("Connection opened")
 
 def start_websocket(url, on_open):
+    """Start a WebSocket connection."""
     ws = websocket.WebSocketApp(url,
                                 on_message=on_message,
                                 on_error=on_error,
@@ -108,30 +106,14 @@ def start_websocket(url, on_open):
     ws.on_open = on_open
     ws.run_forever()
 
-
-
-
-
-
 if __name__ == "__main__":
-    websocket.enableTrace(True)
-    
-    # Create the database table in QuestDB
     create_questdb_table()
 
-    # Start WebSocket connections
-    btcusdt_url = "wss://stream.binance.com:9443/ws/btcusdt@trade"
+    # URLs for WebSocket connections
+    urls = ["wss://stream.binance.com:9443/ws/btcusdt@trade",
+            "wss://stream.binance.com:9443/ws/ethusdt@trade"]
 
-    ethusdt_url = "wss://stream.binance.com:9443/ws/ethusdt@trade"
-
-
-
-  # Start WebSocket connections in separate threads
-    btc_thread = threading.Thread(target=start_websocket, args=(btcusdt_url, lambda: print("BTC/USDT Connection opened")))
-    eth_thread = threading.Thread(target=start_websocket, args=(ethusdt_url, lambda: print("ETH/USDT Connection opened")))
-
-    btc_thread.start()
-    eth_thread.start()
-
-    btc_thread.join()
-    eth_thread.join()
+    # Start WebSocket connections in separate threads
+    with ThreadPoolExecutor(max_workers=len(urls)) as executor:
+        for url in urls:
+            executor.submit(start_websocket, url, lambda: logging.info(f"{url} Connection opened"))
