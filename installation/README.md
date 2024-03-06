@@ -162,12 +162,6 @@ Generating a dhparam file can take a long time. For a more secure (but slower) 4
 The user/password are the default one: admin:admin
 
 The **.htpasswd** file is used for basic HTTP authentication. You can change it using the **htpasswd** utility, which is part of the Apache HTTP Server package. Here's how to create an **.htpasswd** file with a user named **yourusername**:
-```
-sudo htpasswd -c ./nginx/.htpasswd yourusername
-```
-This command will prompt you for the password for **yourusername**. The **-c** flag tells **htpasswd** to create a new file. **Caution**: Using the **-c** flag will overwrite any existing **.htpasswd** file. 
-
-If **htpasswd** is not installed on your system, you can install it with **apt** on Ubuntu:
 
 ```
 # Note: For deployment testing, we are using an existing .htpasswd file. This step is skipped as the authentication setup is already in place.
@@ -176,6 +170,15 @@ If **htpasswd** is not installed on your system, you can install it with **apt**
 # But for the purposes of testing, this step can be omitted.
 
 sudo htpasswd -c ./nginx/.htpasswd yourusername
+
+```
+
+This command will prompt you for the password for **yourusername**. The **-c** flag tells **htpasswd** to create a new file. **Caution**: Using the **-c** flag will overwrite any existing **.htpasswd** file. 
+
+If **htpasswd** is not installed on your system, you can install it with **apt** :
+
+```
+sudo apt-get install apache2-utils
 
 ```
 
