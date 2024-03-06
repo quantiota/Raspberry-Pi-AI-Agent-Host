@@ -145,7 +145,14 @@ The environment variables will be replaced directly within the Nginx configurati
 The **dhparam.pem** file is used for Diffie-Hellman key exchange, which is part of establishing a secure TLS connection. You can generate it with OpenSSL. Here's how to generate a 2048-bit key:
 
 ```
+# Note: For deployment testing, we are using an existing dhparam.pem file. This step is skipped because the file is already configured.
+# Normally, you would generate a new dhparam.pem file for Diffie-Hellman key exchange with the following command:
+# openssl dhparam -out ./nginx/certs/dhparam.pem 2048
+# However, for testing purposes, this is not required.
+
+
 sudo openssl dhparam -out ./nginx/certs/dhparam.pem 2048
+
 ```
 
 Generating a dhparam file can take a long time. For a more secure (but slower) 4096-bit key, simply replace 2048 with 4096 in the above command.
@@ -163,7 +170,13 @@ This command will prompt you for the password for **yourusername**. The **-c** f
 If **htpasswd** is not installed on your system, you can install it with **apt** on Ubuntu:
 
 ```
-sudo apt-get install apache2-utils
+# Note: For deployment testing, we are using an existing .htpasswd file. This step is skipped as the authentication setup is already in place.
+# Typically, you would create a new .htpasswd file for basic HTTP authentication using:
+# htpasswd -c ./nginx/.htpasswd yourusername
+# But for the purposes of testing, this step can be omitted.
+
+sudo htpasswd -c ./nginx/.htpasswd yourusername
+
 ```
 
 ### 5 Configure the Dockerfile for your specific needs.
