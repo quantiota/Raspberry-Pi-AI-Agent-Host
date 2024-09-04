@@ -9,7 +9,7 @@ Before starting the synchronization process, ensure you have a QuestDB instance 
 To create the necessary table in QuestDB, use the following SQL:
 
 ```
-CREATE TABLE coinbase_matches (
+CREATE TABLE trades (
     symbol SYMBOL,      -- Stores the symbol of the trade (BTC-USD, ETH-USD, etc.)
     id DOUBLE,          -- Stores the trade ID
     price DOUBLE,       -- Stores the price of the trade
