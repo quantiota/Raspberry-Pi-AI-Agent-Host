@@ -11,8 +11,9 @@ services:
       # volume used to access the `notebooks` folder
       - ../notebooks:/home/coder/project
 
-    environment:
-      - PASSWORD=yourpassword
+    env_file:
+      - .env
+
     devices:
     # I2C and Serial Interfaces for respectively BME680 sensor and QUECTEL EG25-G 4G HAT cellular device.
       - "/dev/i2c-1:/dev/i2c-1"
@@ -30,9 +31,8 @@ services:
       - ./grafana/dashboards:/etc/dashboards
     depends_on:
       - questdb
-    environment:
-      - GRAFANA_QUESTDB_PASSWORD=quest
-      - GF_INSTALL_PLUGINS=pr0ps-trackmap-panel
+    env_file:
+      - .env
 
   questdb:
     image: questdb/questdb:7.3
@@ -43,9 +43,8 @@ services:
       - "9003:9003"
     volumes:
       - questdb-data:/root/.questdb
-    environment:
-      - QDB_PG_USER=admin
-      - QDB_PG_PASSWORD=quest
+    env_file:
+      - .env
 
   nginx:
     image: nginx:stable
