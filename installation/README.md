@@ -215,6 +215,19 @@ Failing to set up this mapping before running **docker compose up** might lead t
 
 It's essential to map these devices in the Docker Compose configuration **before** launching the service to ensure that the required hardware interactions function seamlessly within the containerized environment.
 
+If no devices are connected, comment out the following lines.
+The Docker stack will not complete if the required hardware 
+devices (like I2C) are not connected.
+
+```
+    # devices:
+    #   - "/dev/i2c-1:/dev/i2c-1"
+
+```
+
+
+This ensures that if the necessary hardware is not connected, the service configuration can be easily adjusted without causing stack completion issues.
+
 
 ### 7 Launch the AI Agent Host using the provided docker-compose configuration.
 After completing these steps, you can bring up the Docker stack using the following command:
