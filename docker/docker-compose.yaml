@@ -21,7 +21,7 @@ services:
       - "/dev/ttyUSB2:/dev/ttyUSB2"
 
   grafana:
-    image: grafana/grafana:9.5.1
+    image: grafana/grafana:11.2.0
     ports:
       - "3000:3000"
     volumes:
@@ -35,7 +35,7 @@ services:
       - .env
 
   questdb:
-    image: questdb/questdb:7.3
+    image: questdb/questdb:8.1.1
     ports:
       - "9000:9000"
       - "9009:9009"
