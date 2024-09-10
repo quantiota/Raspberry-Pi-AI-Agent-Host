@@ -73,6 +73,38 @@ cd Raspberry-Pi-AI-Agent-Host/docker
 **Note**: A **fully qualified domain name**  (FQDN) is mandatory for running any notebooks from VSCode over **HTTPS**.
 
 
+To run the VSCode notebooks over HTTPS and ensure secure communication across your services, it's essential to set up port forwarding for critical ports. You'll need to forward the following ports from your host machine or cloud provider (e.g., AWS, GCP, or Azure) to your server's local environment:
+
+- **Port 443 (HTTPS)**: This is necessary for serving the VSCode instance and other web services securely over HTTPS using SSL certificates. Ensure your server has a fully qualified domain name (FQDN) configured, as it is mandatory for enabling HTTPS.
+  
+- **Port 80 (HTTP)**: Port 80 is used to redirect HTTP traffic to HTTPS and for the initial Let's Encrypt SSL certificate challenge during the Certbot process.
+
+- **Port 22 (SSH)**: For secure access to your server via SSH. This is useful for remote management, debugging, and manual configuration if needed.
+
+- **Port 8812 (QuestDB REST API)**: QuestDB uses port 8812 for its REST API. Make sure this port is forwarded if you plan to access or query QuestDB data remotely.
+
+- **Port 9009 (QuestDB Influx Line Protocol)**: This port is used for the InfluxDB line protocol in QuestDB, allowing remote connections to ingest time-series data. Forwarding this port is essential if you're collecting time-series data from remote sources.
+
+### Router Configuration (if applicable):
+
+If you're running your server from a local network (e.g., at home or in an office), you will need to configure port forwarding on your router to allow external traffic to access your server. Here's a general guide on how to configure your router for port forwarding:
+
+1. **Login to your router**: Access your router’s configuration page via its IP address (usually something like `192.168.0.1` or `192.168.1.1`).
+   
+2. **Navigate to Port Forwarding section**: Look for a section called "Port Forwarding" or "Virtual Server." The location of this section varies depending on the router model.
+
+3. **Add new port forwarding rules** for each required port:
+   - **External Port**: Enter the external port number (e.g., 443, 80, 22, 8812, 9009).
+   - **Internal IP Address**: Enter the local IP address of the machine running the services (e.g., your server's local IP address).
+   - **Internal Port**: Enter the same port number to forward the traffic internally.
+   - **Protocol**: Choose either TCP or UDP, or select "Both" depending on the service requirements.
+   
+4. **Save the settings** and restart your router if necessary.
+
+You can set up port forwarding either through your cloud provider's security group settings (for example, AWS EC2 security groups) or by configuring firewall rules in your server's networking settings (e.g., using `iptables` or `ufw` on a Linux server). Be sure to secure these ports and restrict access to trusted IPs where necessary to avoid unauthorized access.
+
+
+
 ### 1 Generate Certificates with Certbot
 
 We will use the Certbot Docker image to generate certificates. This service will bind on ports 80 and 443, which are the standard HTTP and HTTPS ports, respectively. It will also bind mount some directories for persistent storage of certificates and challenge responses. 
