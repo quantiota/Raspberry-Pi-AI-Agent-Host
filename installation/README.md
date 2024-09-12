@@ -261,15 +261,9 @@ devices (like I2C) are not connected.
 This ensures that if the necessary hardware is not connected, the service configuration can be easily adjusted without causing stack completion issues.
 
 
-### 7 Launch the AI Agent Host using the provided docker-compose configuration.
-After completing these steps, you can bring up the Docker stack using the following command:
 
-```
-sudo docker compose up --build -d
-```
-This will start all services as defined in your **docker-compose.yaml** file.
 
-### 8 **Metric Monitoring with Prometheus**: 
+### 7 **Metric Monitoring with Prometheus**: 
 
 To monitor system metrics like CPU, memory, and disk usage, you can now leverage the fully provisioned Prometheus database and the Node Exporter Full dashboard (ID 1860) within your Grafana instance. This setup provides a comprehensive view of system metrics collected via the Prometheus Node Exporter.
 
@@ -289,6 +283,16 @@ datasources:
 ```
 
 Make sure your Prometheus server is configured to scrape metrics from the Node Exporter.
+
+### 8 Launch the AI Agent Host using the provided docker-compose configuration.
+
+After completing these steps, you can bring up the Docker stack using the following command:
+
+```
+sudo docker compose up --build -d
+```
+This will start all services as defined in your **docker-compose.yaml** file.
+
 
 
 ## Usage
