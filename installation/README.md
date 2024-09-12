@@ -287,7 +287,7 @@ datasources:
     editable: false
     uid: rYdddlPWj  # Ensure this UID is unique, used in the dashboard JSON
 
-    ```
+```
 Make sure your Prometheus server is configured to scrape metrics from the Node Exporter.
 
 
