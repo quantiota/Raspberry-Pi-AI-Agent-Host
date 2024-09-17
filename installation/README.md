@@ -143,7 +143,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 ### 2 Setup Environment Variables
 
-Firstly, you will want to create an '**.env**' file in the docker folder with the following variables:
+Since the '**.env**' file already exists in the docker folder, please update it to include or modify the necessary variables as needed for your setup:
 
 ```
 # sudo nano .env
