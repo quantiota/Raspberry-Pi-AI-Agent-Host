@@ -270,6 +270,7 @@ To monitor system metrics like CPU, memory, and disk usage, you can now leverage
 To ensure proper configuration, you need to modify the `prometheus-ip-address` URL in the `prometheus.yml` file as shown below:
 
 ```
+# /grafana/provisioning/datasources/prometheus.yml
 apiVersion: 1
 
 datasources:
