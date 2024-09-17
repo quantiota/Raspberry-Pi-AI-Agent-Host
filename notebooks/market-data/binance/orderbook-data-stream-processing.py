@@ -9,22 +9,22 @@ import websocket
 from concurrent.futures import ThreadPoolExecutor
 
 # Configuration
-DB_NAME = os.getenv('DB_NAME', 'qdb')
-DB_USER = os.getenv('DB_USER', 'admin')
-DB_PASSWORD = os.getenv('DB_PASSWORD', 'quest')
-DB_HOST = os.getenv('DB_HOST', 'docker_host_ip_address')
-DB_PORT = os.getenv('DB_PORT', '8812')
+QDB_PG_NAME = os.getenv('QDB_PG_NAME', 'qdb')
+QDB_PG_USER = os.getenv('QDB_PG_USER', 'admin')
+QDB_PG_PASSWORD = os.getenv('QDB_PG_PASSWORD', 'quest')
+QDB_PG_HOST = os.getenv('QDB_PG_HOST', 'docker_host_ip_address')
+QDB_PG_PORT = os.getenv('QDB_PG_PORT', '8812')
 
 # Logging Configuration
 logging.basicConfig(level=logging.INFO)
 
 # Initialize connection pool
 connection_pool = psycopg2.pool.SimpleConnectionPool(1, 10,
-                                                     dbname=DB_NAME,
-                                                     user=DB_USER,
-                                                     password=DB_PASSWORD,
-                                                     host=DB_HOST,
-                                                     port=DB_PORT)
+                                                     dbname=QDB_PG_NAME,
+                                                     user=QDB_PG_USER,
+                                                     password=QDB_PG_PASSWORD,
+                                                     host=QDB_PG_HOST,
+                                                     port=QDB_PG_PORT)
 
 def create_questdb_table():
     """Create a table in QuestDB for order book data."""
