@@ -101,6 +101,7 @@ cd Raspberry-Pi-AI-Agent-Host/docker
 
 Then follow the prerequisites section in this [Tutorial](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/installation) for guidance.
 
+
 ## Usage
 
 ### 1 Once the services are up and running, you can access the AI Agent Host interfaces:
@@ -122,6 +123,30 @@ You can also run the existing notebooks in the project folder within VSCode.
 [Weather Station](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/notebooks/weather-station) 
 
 [GPS Tracker](https://github.com/quantiota/Raspberry-Pi-AI-Agent-Host/tree/main/notebooks/vehicle-tracking) 
+
+
+## AI Agent Hosting Example: Claude Code
+
+This example shows how to add an **AI agent** to the Raspberry Pi AI Agent Host **without changing** the core stack. The agent runs in its own service and talks **directly** to Code-Server, QuestDB and Grafana over the internal Docker network, preserving the Host’s role as an **agentic environment**.
+
+Claude Code is functioning like a **human developer with terminal access** — using `curl`, database clients, and file operations rather than AI-specific middleware layers.  
+The *agentic* behavior comes from its ability to autonomously chain these basic system tools together, not from specialized AI agent frameworks.
+
+### What This Adds
+- Updated `docker/vscode/Dockerfile` to include Claude Code installation.
+- Updated `docker/docker-compose.yaml` to mount persistent config/data volumes for Claude Code.
+- instructions `README.md` to run Claude Code
+
+### Folder Layout
+
+```
+└── 📁claude-code
+    └── 📁docker
+        └── 📁vscode
+            ├── Dockerfile
+        ├── docker-compose.yaml
+    └── README.md
+```
 
 
 

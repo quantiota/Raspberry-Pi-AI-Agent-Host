@@ -1,0 +1,89 @@
+version: "3"
+
+services:
+  vscode:
+    build:
+      context: vscode
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      # volume used to access the `notebooks` folder
+      - ../notebooks:/home/coder/project
+      - claude-config:/home/coder/.config/claude-code
+      - claude-data:/home/coder/.claude
+
+    env_file:
+      - .env
+
+#   devices:
+    # I2C and Serial Interfaces for respectively BME680 sensor and QUECTEL EG25-G 4G HAT cellular device.
+   #  - "/dev/i2c-1:/dev/i2c-1"
+   #  - "/dev/ttyUSB1:/dev/ttyUSB1"
+   #  - "/dev/ttyUSB2:/dev/ttyUSB2"
+
+  grafana:
+    image: grafana/grafana:9.5.1
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning/datasources/:/etc/grafana/provisioning/datasources/
+      - ./grafana/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/
+      - ./grafana/dashboards:/etc/dashboards
+    depends_on:
+      - questdb
+    env_file:
+      - .env
+
+  questdb:
+    image: questdb/questdb:7.3
+    ports:
+      - "9000:9000"
+      - "9009:9009"
+      - "8812:8812"
+      - "9003:9003"
+    volumes:
+      - questdb-data:/root/.questdb
+    env_file:
+      - .env
+
+  nginx:
+    image: nginx:stable
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/default.conf.template:/etc/nginx/conf.d/default.conf.template
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./nginx/.well-known/:/usr/share/nginx/html/.well-known/
+      - ./nginx/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
+      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - ./nginx/nginx.env
+    command: /bin/bash -c "envsubst '$$DOMAIN' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+    depends_on:
+      - vscode
+      - grafana
+      - questdb
+
+  # Refer to ./init.yaml to for initial SSL setup
+  # add the following line in in crontab (5 am, every monday)
+  #   0 5 * * 1 docker compose run certbot renew
+  certbot:
+    image: certbot/certbot
+    ports: []
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - ./nginx/.well-known/:/usr/share/nginx/html/.well-known/
+
+
+volumes:
+  grafana-data:
+  questdb-data:
+  claude-config:
+  claude-data:
+
