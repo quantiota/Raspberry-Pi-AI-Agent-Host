@@ -24,11 +24,25 @@ This folder contains utilities installed in the AI Agent Host environment to enh
 
 Claude can now autonomously:
 
-* Convert `.png` to `.jpg` or `.webp`
-* Resize an image to specific dimensions
-* Batch-optimize all images in a folder
-* Extract a 5-second clip from a video
-* Create a GIF from a `.mp4` video
+* **Convert `.png` to `.jpg`:**
+  ```bash
+  convert image.png image.jpg
+  ```
+
+* **Resize image to 800x600:**
+  ```bash
+  convert input.jpg -resize 800x600 output.jpg
+  ```
+
+* **Extract 5-second video clip:**
+  ```bash
+  ffmpeg -i input.mp4 -ss 00:01:30 -t 00:00:05 -c copy clip.mp4
+  ```
+
+* **Create GIF from video:**
+  ```bash
+  ffmpeg -i video.mp4 -vf "fps=10,scale=320:-1" output.gif
+  ```
 
 
 

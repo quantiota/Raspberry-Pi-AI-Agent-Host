@@ -24,9 +24,18 @@ This turns the AI Agent Host into a self-contained, fully capable development an
 ### Usage Examples
 
 * Convert `report.md` to PDF:
+  ```bash
+  pandoc report.md -o report.pdf
+  ```
 
 * Extract text from `input.pdf` into `output.txt`:
+  ```bash
+  pdftotext input.pdf output.txt
+  ```
 
- 
+* Convert Markdown to HTML with custom styling:
+  ```bash
+  pandoc document.md -o document.html --css style.css
+  ```
 
 

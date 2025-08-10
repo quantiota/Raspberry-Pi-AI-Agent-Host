@@ -7,6 +7,10 @@ This folder contains **optional pre-installed utilities and resources** to exten
 
 These tools allow the AI to perform tasks beyond coding, enabling **end-to-end workflows** without leaving the environment.
 
+## Architecture Note
+
+These are **infrastructure utilities** pre-installed for any AI to use. They maintain the AI Agent Host's model-agnostic design - Claude Code, local LLMs, or future AI can leverage these same tools without modification.
+
 ## Structure
 
 * **`documents/`** – Tools and examples for working with text documents (Markdown, PDF, DOCX, RTF, etc.).
