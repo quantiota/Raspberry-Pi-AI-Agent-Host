@@ -2,7 +2,8 @@
 
 # Productivity Tools
 
-This folder contains **pre-installed utilities and resources** to extend Claude Code’s capabilities inside the AI Agent Host.
+This folder contains **optional pre-installed utilities and resources** to extend Claude Code’s capabilities inside the AI Agent Host.
+
 
 These tools allow the AI to perform tasks beyond coding, enabling **end-to-end workflows** without leaving the environment.
 
