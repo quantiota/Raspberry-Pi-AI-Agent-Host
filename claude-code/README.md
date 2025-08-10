@@ -61,7 +61,7 @@ This configuration enables **true autonomous task execution** rather than limite
 
 ## Security Guidelines
 
-Run the Raspberry Pi AI Agent Host on dedicated, isolated hardware only.**
+**Run the Raspberry Pi AI Agent Host on dedicated, isolated hardware only.**
 
 Since AI agents have full system access, use a standalone development box that is not shared with other workloads or production systems.
 
