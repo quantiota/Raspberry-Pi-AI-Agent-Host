@@ -5,6 +5,23 @@ This folder contains the files needed to integrate **Claude Code** into the Rasp
 
 It enables Claude Code to directly interact with Code-Server, QuestDB and Grafana over the internal Docker network, while preserving the AI Agent Host as an **agentic environment**.
 
+## Architecture Philosophy
+
+**Important**: The AI Agent Host is **pure infrastructure** - it contains no AI models or agents. This integration simply adds Claude Code as a client that can utilize the infrastructure's capabilities.
+
+**AI Agent Host** = Infrastructure Platform
+- Containers, databases, networking, visualization tools
+- Model-agnostic and framework-agnostic
+- Can work with Claude Code, local LLMs, or any AI with system access
+
+**Claude Code** = AI Layer  
+- Brings intelligence to the infrastructure
+- Uses the platform's capabilities (QuestDB, Grafana, file system)
+- Could be replaced with other AI solutions
+
+This separation ensures the infrastructure remains reusable and future-proof.
+
+
 To apply this integration, replace the corresponding files in the main `docker` directory with the updated versions provided here.
 
 From the  Code-Server web application, run the command `claude` in the terminal and follow the instructions
