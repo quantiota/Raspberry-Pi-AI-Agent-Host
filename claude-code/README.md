@@ -59,6 +59,7 @@ In most AI environments, it is not possible to:
 
 This configuration enables **true autonomous task execution** rather than limited, sandboxed demonstrations.
 
+## Security Guidelines
 
 Run the AI Agent Host on dedicated, isolated hardware only.**
 
