@@ -60,15 +60,11 @@ In most AI environments, it is not possible to:
 This configuration enables **true autonomous task execution** rather than limited, sandboxed demonstrations.
 
 
-## Security Guidelines
+Run the AI Agent Host on dedicated, isolated hardware only.**
 
-For maximum isolation and reliability, it is recommended to run the Raspberry Pi AI Agent Host on **dedicated hardware** rather than sharing resources with other workloads.
+Since AI agents have full system access, use a standalone development box that is not shared with other workloads or production systems.
 
-### Recommended Hardware
-
-For secure deployments, run the Raspberry Pi AI Agent Host on a **standalone development box** that is not shared with other production workloads.  
-
-Suggested configurations:
+### Recommended Hardware Configurations
 
 **Edge / Low-Power Alternative**
 - Raspberry Pi 4 or Raspberry Pi 5 — suitable for IoT, field deployments, and lightweight agent tasks.
