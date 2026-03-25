@@ -7,9 +7,9 @@
 
 
 
-## 3D Print
+## 3D Print Service
 
-[3D Print Case](https://www.sculpteo.com/en/services/online-3d-printing-service/)
+[sculpteo](https://www.sculpteo.com/en/services/online-3d-printing-service/)
 
 
 
