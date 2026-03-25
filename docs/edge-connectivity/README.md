@@ -2,7 +2,7 @@
 # Raspberry Pi 4 Case for Teltonika Calxy Module
 
 
-[Raspberry Pi Case](0857_EBD050AM00_01.PNG)
+[Raspberry Pi Case](./0857_EBD050AM00_01.PNG)
 
 
 
