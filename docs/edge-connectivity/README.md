@@ -7,7 +7,7 @@
 
 
 
-## 3D Print Service
+## 3D Printing Service
 
 [sculpteo](https://www.sculpteo.com/en/services/online-3d-printing-service/)
 
