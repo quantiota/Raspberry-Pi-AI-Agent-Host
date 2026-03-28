@@ -1,5 +1,5 @@
 # Raspberry Pi AI Agent Host
-![Raspberry Pi Case](https://raw.githubusercontent.com/quantiota/Raspberry-Pi-AI-Agent-Host/refs/heads/main/docs/edge-connectivity/0857_EBD050AM00_01.PNG)
+![Raspberry Pi Case](https://raw.githubusercontent.com/quantiota/Raspberry-Pi-AI-Agent-Host/refs/heads/main/docs/edge-connectivity/stl/0857_EBD050AM00_01.png)
 
 
 ## Simplified Summary
