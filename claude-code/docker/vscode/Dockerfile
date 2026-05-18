@@ -4,10 +4,12 @@ FROM codercom/code-server:4.16.1
 # Switch to root user for permissions
 USER root
 
-# Update, and install python3-dev, python3-pip, and Node.js
-RUN apt-get update && apt-get install -y python3-dev python3-pip curl && \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
+# Update, and install python3-dev, python3-pip, and curl, then clean up apt cache
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    python3-pip \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements file to the container
 COPY requirements.txt /tmp/
