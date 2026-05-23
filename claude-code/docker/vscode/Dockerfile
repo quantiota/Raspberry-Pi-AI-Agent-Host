@@ -4,7 +4,7 @@ FROM codercom/code-server:4.96.4
 # Switch to root user for permissions
 USER root
 
-# Update system and install Python + Node prerequisites
+# Update, and install python3-dev, python3-pip, and curl, then clean up apt cache
 RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-pip \
@@ -30,6 +30,10 @@ RUN pip install -r /tmp/requirements.txt
 RUN groupadd -g 995 i2cgroup
 RUN usermod -aG i2cgroup coder
 
+# Create and set permissions for Claude directories
+RUN mkdir -p /home/coder/.claude /home/coder/.config/claude-code && \
+    chown -R coder:coder /home/coder/.claude /home/coder/.config && \
+    chmod -R u+rwX /home/coder/.claude /home/coder/.config
 
 # Add the coder user to the dialout group for GPS communication with serial port /dev/ttyUSB*
 RUN usermod -aG dialout coder
@@ -37,6 +41,8 @@ RUN usermod -aG dialout coder
 # Switch to coder user
 USER coder
 
+# Install Claude Code via native installer
+RUN curl -fsSL https://claude.ai/install.sh | bash
 
 # Install the Visual Studio Code extensions
 RUN code-server --install-extension ms-toolsai.jupyter@2023.4.1001091014 \
