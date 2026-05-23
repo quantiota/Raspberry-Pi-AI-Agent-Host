@@ -1,5 +1,5 @@
 # Use the specified base image
-FROM codercom/code-server:4.96.4
+FROM codercom/code-server:4.113.1
 
 # Switch to root user for permissions
 USER root
