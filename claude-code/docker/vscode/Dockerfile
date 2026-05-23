@@ -1,5 +1,5 @@
 # Use the specified base image
-FROM codercom/code-server:4.16.1
+FROM codercom/code-server:4.96.4
 
 # Switch to root user for permissions
 USER root
@@ -8,14 +8,22 @@ USER root
 RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-pip \
+    python3-venv \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the requirements file to the container
-COPY requirements.txt /tmp/
+# ---- Python virtual environment (PEP 668 compliant) ----
+RUN python3 -m venv /opt/venv
 
-# Install Python packages from the requirements file
-RUN python3 -m pip install -r /tmp/requirements.txt
+# Make venv the default Python
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Upgrade pip inside venv
+RUN pip install --upgrade pip
+
+# Copy requirements and install them
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
 # Additional setup (e.g., group and user modifications)
 # Replace 995 with the gid you find for the I2C Interface

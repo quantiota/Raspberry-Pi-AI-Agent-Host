@@ -16,9 +16,9 @@ services:
 
     devices:
     # I2C and Serial Interfaces for respectively BME680 sensor and QUECTEL EG25-G 4G HAT cellular device.
-      - "/dev/i2c-1:/dev/i2c-1"
-      - "/dev/ttyUSB1:/dev/ttyUSB1"
-      - "/dev/ttyUSB2:/dev/ttyUSB2"
+    # - "/dev/i2c-1:/dev/i2c-1"
+    # - "/dev/ttyUSB1:/dev/ttyUSB1"
+    # - "/dev/ttyUSB2:/dev/ttyUSB2"
 
   grafana:
     image: grafana/grafana:11.2.0
