@@ -9,6 +9,7 @@ services:
       - "8080:8080"
     volumes:
       # volume used to access the `notebooks` folder
+      - ../docker:/home/coder/docker
       - ../notebooks:/home/coder/project
 
     env_file:
