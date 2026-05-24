@@ -45,6 +45,6 @@ USER coder
 RUN curl -fsSL https://claude.ai/install.sh | bash
 
 # Install the Visual Studio Code extensions
-RUN code-server --install-extension ms-toolsai.jupyter@2023.4.1001091014 \
+RUN code-server --install-extension ms-toolsai.jupyter@2025.9.1 \
                 --install-extension ms-toolsai.vscode-jupyter-powertoys \
                 --install-extension ms-python.python

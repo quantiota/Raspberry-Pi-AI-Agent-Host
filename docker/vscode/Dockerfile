@@ -4,7 +4,7 @@ FROM codercom/code-server:4.113.1
 # Switch to root user for permissions
 USER root
 
-# Update system and install Python + Node prerequisites
+# Update, and install python3-dev, python3-pip, and curl, then clean up apt cache
 RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-pip \
@@ -39,7 +39,7 @@ USER coder
 
 
 # Install the Visual Studio Code extensions
-RUN code-server --install-extension ms-toolsai.jupyter@2023.4.1001091014 \
+RUN code-server --install-extension ms-toolsai.jupyter@2025.9.1 \
                 --install-extension ms-toolsai.vscode-jupyter-powertoys \
                 --install-extension ms-python.python
 
