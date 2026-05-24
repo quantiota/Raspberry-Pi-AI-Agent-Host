@@ -147,16 +147,25 @@ Since the '**.env**' file already exists in the docker folder, please update it 
 
 ```
 # sudo nano .env
-
 # VSCode
 PASSWORD=yourpassword
 
 # Grafana
 GRAFANA_QUESTDB_PASSWORD=quest
+GF_AUTH_ANONYMOUS_ENABLED=true
+GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+GF_AUTH_ANONYMOUS_ORG_NAME=Main Org.
+GF_AUTH_ANONYMOUS_ALLOW_EMBEDDING=true
+GF_SECURITY_ALLOW_EMBEDDING=true
+GF_SECURITY_ADMIN_USER=admin
+GF_SECURITY_ADMIN_PASSWORD=admin
 
 # QuestDB
 QDB_PG_USER=admin
 QDB_PG_PASSWORD=quest
+QDB_PG_NAME=qdb
+QDB_PG_HOST=docker_host_ip_address
+QDB_PG_PORT=8812
 
 ```
 and to define your domain name in the '**nginx.env**' file:
