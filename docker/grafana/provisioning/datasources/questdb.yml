@@ -2,6 +2,7 @@ apiVersion: 1
 datasources:
   - name: QuestDB
     type: questdb-questdb-datasource
+    uid: 2Bi8EToVz 
     jsonData:
       server: host.docker.internal
       port: 8812
