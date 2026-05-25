@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-venv \
     curl \
+    inotify-tools \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- Python virtual environment (PEP 668 compliant) ----
