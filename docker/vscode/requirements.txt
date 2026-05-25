@@ -13,3 +13,6 @@ pyserial==3.5
 
 # some-MarketData-package==x.y.z   <- Comment or uncomment based on the application
 websocket-client==1.9.0
+
+# full terminal recording
+asciinema
