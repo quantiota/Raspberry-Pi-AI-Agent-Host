@@ -140,7 +140,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "postgres",
+            "type": "questdb-questdb-datasource",
             "uid": "2Bi8EToVz"
           },
           "editorMode": "code",
@@ -168,7 +168,7 @@
         },
         {
           "datasource": {
-            "type": "postgres",
+            "type": "questdb-questdb-datasource",
             "uid": "2Bi8EToVz"
           },
           "editorMode": "code",
@@ -201,7 +201,7 @@
     },
     {
       "datasource": {
-        "type": "postgres",
+        "type": "questdb-questdb-datasource",
         "uid": "2Bi8EToVz"
       },
       "fieldConfig": {
@@ -314,7 +314,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "postgres",
+            "type": "questdb-questdb-datasource",
             "uid": "2Bi8EToVz"
           },
           "editorMode": "code",
@@ -342,7 +342,7 @@
         },
         {
           "datasource": {
-            "type": "postgres",
+            "type": "questdb-questdb-datasource",
             "uid": "2Bi8EToVz"
           },
           "editorMode": "code",
