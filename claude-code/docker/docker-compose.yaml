@@ -24,6 +24,8 @@ services:
 
   grafana:
     image: grafana/grafana:12.4.1
+    environment:
+      - GF_INSTALL_PLUGINS=questdb-questdb-datasource 
     ports:
       - "3000:3000"
 
