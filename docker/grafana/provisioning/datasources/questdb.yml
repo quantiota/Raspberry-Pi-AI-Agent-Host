@@ -1,3 +1,20 @@
+# To remove the old QuestDB datasource (e.g. after a uid change or rename),
+# create a separate cleanup file in this directory — do NOT add the block below.
+# A single YAML can hold both `deleteDatasources` and `datasources:`, but Grafana
+# runs deletes BEFORE creates on each boot, so combining them here would delete
+# the datasource and immediately recreate it on every restart.
+#
+# Cleanup file example: ./cleanup-questdb.yaml
+#   apiVersion: 1
+#   deleteDatasources:
+#     - name: QuestDB
+#       orgId: 1
+#
+# After the next `docker compose restart grafana`, verify removal with:
+#   curl -s -u admin:admin http://localhost:3000/api/datasources
+# Then delete the cleanup file so it doesn't re-delete on future boots.
+
+
 apiVersion: 1
 datasources:
   - name: QuestDB
