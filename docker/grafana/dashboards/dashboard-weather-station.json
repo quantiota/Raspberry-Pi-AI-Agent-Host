@@ -25,7 +25,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "postgres",
+        "type": "questdb-questdb-datasource",
         "uid": "2Bi8EToVz"
       },
       "description": "",
