@@ -20,6 +20,7 @@ datasources:
   - name: QuestDB
     type: questdb-questdb-datasource
     uid: 2Bi8EToVz 
+    isDefault: true
     jsonData:
       server: host.docker.internal
       port: 8812
