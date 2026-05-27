@@ -7,4 +7,4 @@ datasources:
     url: http://prometheus-ip-address:9090
     isDefault: false
     editable: false
-    uid: rYdddlPWj  # Ensure this UID is unique, used in the dashboard JSON
+    uid: rYdddlPWk  # Ensure this UID is unique, used in the dashboard JSON
