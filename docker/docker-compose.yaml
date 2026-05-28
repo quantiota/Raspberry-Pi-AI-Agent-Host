@@ -40,7 +40,7 @@ services:
       - .env
 
   questdb:
-    image: questdb/questdb:9.3.3
+    image: questdb/questdb:9.4.0
     ports:
       - "9000:9000"
       - "9009:9009"
