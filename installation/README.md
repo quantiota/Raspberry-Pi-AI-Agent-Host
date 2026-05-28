@@ -287,7 +287,7 @@ datasources:
     type: prometheus
     access: proxy
     url: http://prometheus-ip-address:9090
-    isDefault: true
+    isDefault: false
     editable: false
     uid: rYdddlPWj  # Ensure this UID is unique, used in the dashboard JSON
 ```
