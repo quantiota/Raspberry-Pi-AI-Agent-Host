@@ -111,11 +111,15 @@ Then follow the prerequisites section in this [Tutorial](https://github.com/quan
 - Grafana: Visit https://grafana.domain.tld in your web browser.
 - Code-Server: Visit https://vscode.domain.tld in your web browser.
 
-### 2 To connect the AI Agent Host to a remote JupyterHub environment from Code-Server:
+### 2 For GPU compute offload, connect the AI Agent Lab to a remote JupyterHub environment from Code-Server:
 
-1. Set up or use an existing remote JupyterHub that includes the necessary dependencies for working with your notebooks and data.
+- Set up or use an existing remote JupyterHub that includes the necessary dependencies for working with your notebooks and data.
 
-2. Connect to the remote JupyterHub environment from within the Code-Server interface provided by the AI Agent Host
+- Generate and provide a JupyterHub API token on the AI Agent Lab UI. This token is used by the AI Agent Lab to authenticate with the remote JupyterHub environment and access the assigned kernel.
+
+- Connect to the remote JupyterHub environment from within the Code-Server interface provided by the AI Agent Lab with `/opt/venv/bin/jh-exec` 
+
+Start working with your notebooks and data, using the pre-installed tools and libraries that are included in your remote environment.
 
 ### 3 Start working with your notebooks and data, using the pre-installed tools and libraries included in your remote environment.
 
