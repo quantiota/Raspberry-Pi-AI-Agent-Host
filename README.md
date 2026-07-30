@@ -202,7 +202,7 @@ The *agentic* behavior comes from its ability to autonomously chain these basic 
 
 5. [Grafana - The open observability platform](https://grafana.com/)
 
-6. [Langchain](https://python.langchain.com)
+
 
 
 

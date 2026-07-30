@@ -340,7 +340,6 @@ You can also run the existing notebooks in the project folder within VSCode.
 
 5. [Grafana - The open observability platform](https://grafana.com/)
 
-6. [Langchain](https://python.langchain.com)
 
 
 
