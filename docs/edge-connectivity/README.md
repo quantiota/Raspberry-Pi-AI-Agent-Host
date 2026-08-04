@@ -86,3 +86,11 @@ Get IP (192.168.224.x) + default route from the modem
   ```bash
   ping 1.1.1.1 -I usb0
   ```
+
+
+  For persistency add to /etc/network/interfaces:
+
+  ```bash
+  allow-hotplug usb0
+  iface usb0 inet dhcp
+  ```
