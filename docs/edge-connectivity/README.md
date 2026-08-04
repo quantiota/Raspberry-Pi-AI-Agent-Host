@@ -25,11 +25,10 @@
 
 ## Cellular modem (Calyx HAT)
 
-Install the only required package (`modprobe`):
+On DietPi
 
-```bash
-sudo apt update
-sudo apt install kmod
+```
+dietpi@DietPi:~$ 
 ```
 
 Load the driver and bind the Teltonika USB ID:
