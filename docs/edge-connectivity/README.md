@@ -73,3 +73,16 @@ ATE1
 AT+CPIN?
 AT+CGDCONT=1,"IP","free"
 ```
+
+Get IP (192.168.224.x) + default route from the modem
+
+```
+  sudo apt install udhcpc
+  sudo udhcpc -i usb0       
+```
+
+  Testing connection
+
+  ```
+  ping 1.1.1.1 -I usb0
+  ```
