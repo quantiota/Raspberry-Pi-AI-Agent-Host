@@ -81,7 +81,7 @@ AT+CPIN?
 AT+CGDCONT=1,"IP","free"
 ```
 
-Get IP (192.168.224.x) + default route from the modem
+Get IP (192.168.200.x) + default route from the modem
 
 ```bash
 sudo apt install udhcpc
