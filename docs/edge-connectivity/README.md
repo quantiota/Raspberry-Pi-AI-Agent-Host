@@ -105,8 +105,8 @@ After=multi-user.target
   
 [Service]
 Type=simple
-ExecStartPre=-/sbin/ip link set usb0 up
-ExecStart=/sbin/udhcpc -i usb0 -f
+ExecStartPre=-/usr/sbin/ip link set usb0 up
+ExecStart=/usr/sbin/udhcpc -i usb0 -f
 Restart=always
 RestartSec=5
 
