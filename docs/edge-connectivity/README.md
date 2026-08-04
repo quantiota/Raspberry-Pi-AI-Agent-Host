@@ -46,17 +46,24 @@ sudo tee /etc/systemd/system/calyx-modem.service >/dev/null <<'EOF'
 [Unit]
 Description=Load Calyx cellular modem driver binding
 After=multi-user.target
+
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/sbin/modprobe usbserial
 ExecStart=/sbin/modprobe option
 ExecStart=/bin/sh -c 'echo "1d12 0101" > /sys/bus/usb-serial/drivers/option1/new_id'
+
 [Install]
 WantedBy=multi-user.target
 EOF
+```
+
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now calyx-modem.service
+
 ```
 
 ## APN (Free Mobile, France = `free`)
@@ -77,20 +84,38 @@ AT+CGDCONT=1,"IP","free"
 Get IP (192.168.224.x) + default route from the modem
 
 ```bash
-  sudo apt install udhcpc
-  sudo udhcpc -i usb0       
+sudo apt install udhcpc
+sudo udhcpc -i usb0       
 ```
 
   Testing connection
 
-  ```bash
-  ping 1.1.1.1 -I usb0
+```bash
+ping 1.1.1.1 -I usb0
+```
+
+
+  Persist across reboots:
+
+```bash
+sudo tee /etc/systemd/system/calyx-net.service >/dev/null <<'EOF'
+[Unit]
+Description=Calyx cellular DHCP on usb0
+After=multi-user.target
+  
+[Service]
+Type=simple
+ExecStartPre=-/sbin/ip link set usb0 up
+ExecStart=/sbin/udhcpc -i usb0 -f
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
   ```
+ 
 
-
-  For persistency add to /etc/network/interfaces:
-
-  ```bash
-  allow-hotplug usb0
-  iface usb0 inet dhcp
-  ```
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now calyx-net.service
